@@ -33,7 +33,7 @@
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 125%; /* Khôi phục lại cỡ chữ to gấp đôi cho Desktop */
   scroll-behavior: smooth;
 }
 
@@ -96,9 +96,9 @@ section {
 }
 
 .container {
-  width: 100%;
   max-width: 1800px;
   margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .section-title {
@@ -228,6 +228,7 @@ section {
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
+  margin-bottom: 8rem;
 }
 
 @media(max-width: 992px) {
@@ -388,9 +389,59 @@ section {
   flex: 0 0 90px;
 }
 
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+  /* Dành cho iPad và Tablet */
+  html {
+    font-size: 80%; /* Thu nhỏ chữ lại một chút cho Tablet */
+  }
+  
+  .container {
+    padding: 0 3rem;
+  }
+  
+  .project-row {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 4rem;
+  }
+  
+  .project-row[style*="direction: rtl"] {
+    direction: ltr !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Dành cho Mobile to */
+  html {
+    font-size: 62.5%; /* Trả về nguyên bản 100% tỷ lệ gốc cho điện thoại để tránh bị vỡ giao diện */
+  }
+
+  .hero-title {
+    font-size: 4rem;
+  }
+  
+  .container {
+    padding: 0 2rem; /* Trả lại lề nhỏ cho điện thoại để không bị mất diện tích */
+  }
+  
+  .carousel-thumbnails {
+    justify-content: center;
+  }
+}
+
 @media(max-width: 576px) {
+  /* Dành cho Mobile nhỏ */
+  .hero-title {
+    font-size: 3rem;
+  }
+
   .thumbnail-item {
-    flex: 0 0 120px;
+    flex: 0 0 100px;
+  }
+  
+  .steam-carousel.carousel-vertical .thumbnail-item {
+    flex: 0 0 70px;
   }
 }
 
