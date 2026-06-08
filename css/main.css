@@ -33,7 +33,7 @@
 }
 
 html {
-  font-size: 125%; /* Tăng gấp đôi cơ sở (1rem = 20px thay vì 10px) */
+  font-size: 62.5%;
   scroll-behavior: smooth;
 }
 
