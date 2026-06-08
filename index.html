@@ -1,368 +1,234 @@
-<!-- HELLO
--
-DevFolio is a minimal, clean, lightweight and fully responsive template for Devlopers!
-Created by Anil Seervi.
--
-GitHub repo: https://github.com/AnilSeervi/DevFolio
-README: https://github.com/AnilSeervi/DevFolio/blob/master/README.md
--
-Have fun creating your portfolio on this template!!! -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Phạm Đức Dương | Game Developer Portfolio</title>
+    <meta name="keywords" content="Phạm Đức Dương, Game Developer, Unity, C#, Unity Developer" />
+    <meta name="description" content="Portfolio of Phạm Đức Dương - A passionate Unity Developer" />
+    <meta name="theme-color" content="#121212" />
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
 
-    <!-- Title: add your Portfolio websites's title here -->
-    <title>[Your name here] | Developer</title>
-
-    <!-- Add some coding keywords below, Ex: (javascript, yourusername, etc) -->
-    <meta name="keywords" content="[username], [name], skill" />
-
-    <!-- Improve your SEO by adding a small descrption of you -->
-    <meta name="description" content="[Your name here] | Developer" />
-
-    <!-- Add a your png Logo to the assets folder and change the href attr accordingly  -->
-    <link rel="icon" type="image/png" href="./assets/devfolio-logo.png" />
-
-    <!-- Add your primary-theme color for the value of content -->
-    <meta name="theme-color" content="#36d1dc" />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <!-- Fill content with the URL of this portfolio you'll host -->
-    <meta property="og:url" content="https://devfolio.js.org/" />
-    <!-- Fill content with the title of your portfolio(Recommended to use what you put in <title> tag) -->
-    <meta property="og:title" content="[Your name here] | Developer" />
-    <!-- Give a short description that'll show up when you/someone shares your portfolio on different platform -->
-    <meta property="og:description" content="Made using DevFolio Template" />
-    <!-- Add a thumbnail image in assets folder and fill the content attr with URL to that thumbnail 
-      so that a thumbnail image of your portfolio is shown while shared on other platform -->
-    <meta
-      property="og:image"
-      content="https://devfolio.js.org/assets/devfolio.png"
-    />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <!-- Again fill content attr with the URL of this portfolio you'll host -->
-    <meta property="twitter:url" content="https://devfolio.js.org" />
-    <!-- Recommended to use the same text used within <title> element -->
-    <meta property="twitter:title" content="[Your name here] | Developer" />
-    <!-- short description that shows up while your portfolio is shared -->
-    <meta
-      property="twitter:description"
-      content="Made using DevFolio Template"
-    />
-    <!-- Fill content with the URL to the thumbnail image that you'll put in the assets folder -->
-    <meta
-      property="twitter:image"
-      content="https://anilseervi.vercel.app/assets/devfolio.png"
-    />
-
-    <!-- link tags -->
-    <link rel="preload" as="style" href="./css/main.css" />
+    <!-- Main CSS -->
     <link rel="stylesheet" href="./css/main.css" />
-
-    <!-- FontAwesome Icons link -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <script defer src="./javascript/scrollreveal.min.js"></script>
-    <script
-      defer
-      type="text/javascript"
-      src="./javascript/scrollveal.js"
-    ></script>
-
-    <!-- Remove Google Analytics once you have your portfolio website set-up -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-122228201-4"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || []
-      function gtag() {
-        dataLayer.push(arguments)
-      }
-      gtag("js", new Date())
-
-      gtag("config", "UA-122228201-4")
-    </script>
-    <!-- End of Google Analytics -->
   </head>
   <body>
-    <!-- Hero Section -->
-    <div id="hero">
-      <section class="container">
-        <h1 class="hero-title">
-          Hi, my name is <span class="text-color-main name">Your Name</span>
-          <br />
-          I'm the Unknown Developer.
-        </h1>
-        <p class="hero-cta">
-          <a class="cta-btn cta-btn--hero" href="#about">Get in touch</a>
-        </p>
-      </section>
-      <a href="#about" class="scroll-down-link" aria-label="scroll-down">
-        <div class="scroll-down"></div
-      ></a>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle-wrapper">
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode">
+        <i class="fa-solid fa-sun"></i>
+      </button>
     </div>
-    <!-- /END Hero Section -->
 
-    <!-- About Section -->
-    <section id="about">
+    <!-- Hero Section -->
+    <section id="hero">
+      <div class="container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap-reverse; gap: 4rem;">
+        <div style="flex: 2; min-width: 500px; max-width: 100%;">
+          <h1 class="hero-title">
+            Hi, I'm <span class="text-color-main name">Phạm Đức Dương</span>
+            <br />
+            <span style="white-space: nowrap;">Unity Developer.</span>
+          </h1>
+          <p class="hero-cta">
+            <a class="cta-btn cta-btn--hero" href="#projects">View My Work</a>
+          </p>
+        </div>
+        <div style="flex: 0 0 auto; display: flex; justify-content: center;">
+          <!-- Profile Picture -->
+          <img src="./assets/profile/avatar.png" alt="Phạm Đức Dương" style="width: 600px; max-width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 50%; border: 4px solid var(--accent-color); box-shadow: 0 0 30px var(--shadow-color);">
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills / Tech Stack Section -->
+    <section id="skills">
       <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="row about-wrapper">
-          <div class="about-wrapper__image">
-            <img
-              class="img-fluid"
-              src="./assets/profile.png"
-              alt="Profile Image"
-              width="450"
-              height="350"
-            />
+        <h2 class="section-title">Tech Stack</h2>
+        <div class="skills-wrapper">
+          <div class="skill-card">
+            <i class="fa-brands fa-unity"></i>
+            <h3>Unity Engine</h3>
           </div>
-          <div class="about-wrapper__info">
-            <p class="about-wrapper__info-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Temporibus quae repellat, ad omnis distinctio velit saepe expedita
-              architecto cumque veritatis adipisci. Sapiente non, saepe hic
-              adipisci doloribus quisquam recusandae et.
-            </p>
-            <p class="about-wrapper__info-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
-              obcaecati doloribus qui praesentium quae veniam esse mollitia
-              consequuntur nisi minima quasi et fugit quidem enim recusandae
-              delectus, iusto culpa rerum?
-            </p>
-            <span class="about-wrapper__cta">
-              <a href="#" class="cta-btn cta-btn--resume">View Resume</a>
-            </span>
+          <div class="skill-card">
+            <i class="fa-solid fa-code"></i>
+            <h3>C# / OOP</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fa-solid fa-database"></i>
+            <h3>SQLite / Data</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fa-brands fa-git-alt"></i>
+            <h3>Git / Version Control</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fa-solid fa-microchip"></i>
+            <h3>Optimization</h3>
           </div>
         </div>
       </div>
     </section>
-    <!-- /END About Section -->
 
-    <!--Projects Section-->
+    <!-- Projects Section -->
     <section id="projects">
       <div class="container">
+        <h2 class="section-title">Game Showcase</h2>
         <div class="project-wrapper">
-          <h2 class="section-title dark-blue-text">Projects</h2>
 
-          <!-- Each .row is a project -->
-          <article class="row">
-            <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Project Title</h3>
-              <p class="project-wrapper__text-info">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deleniti voluptas, sit nam perspiciatis tempore aspernatur ullam
-                necessitatibus impedit repellendus vero sed ipsa eos beatae ab
-                sint saepe nostrum! Enim, perferendis.
+          <!-- Project 1: FarmPuzzle -->
+          <article class="project-row">
+            <div class="project-info project-wrapper__text">
+              <h3>FarmPuzzle</h3>
+              <p>
+                Game mobile thể loại Hybrid-casual (Farm Simulation kết hợp Block Puzzle). Xây dựng Core Data Layer (SQLite & RAM Cache) giúp tối ưu tốc độ truy xuất dữ liệu và phát triển Custom Editor Tools (Database Viewer, AutoSetup) để tự động hóa quy trình thiết lập data cho team gồm 6 thành viên.
               </p>
-              <div class="project-wrapper__text-btns">
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >See Live</a
-                >
-                <a href="#" target="_blank" class="cta-btn text-color-main"
-                  >Source Code</a
-                >
+              
+              <!-- Technical Breakdown -->
+              <div class="tech-breakdown">
+                <span class="tech-tag">Core Data Layer</span>
+                <span class="tech-tag">SQLite</span>
+                <span class="tech-tag">RAM Cache</span>
+                <span class="tech-tag">Custom Editor Tools</span>
+                <span class="tech-tag">Git</span>
+              </div>
+
+              <div class="project-btns">
+                <!-- <a href="#" target="_blank" class="cta-btn cta-btn--projects"><i class="fa-solid fa-play"></i> Play in Browser</a> -->
+                <a href="https://github.com/Duong4921/farmpuzzle" target="_blank" class="cta-btn cta-btn--secondary">
+                  <i class="fa-brands fa-github"></i> Source Code
+                </a>
               </div>
             </div>
 
-            <div class="project-wrapper__image">
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
-                  <img
-                    src="./assets/project.png"
-                    class="img-fluid"
-                    alt="Project Image"
-                    width="1366"
-                    height="767"
-                  />
+            <!-- Media Carousel (Steam-like) - Dành riêng cho màn hình dọc -->
+            <div class="project-media project-wrapper__image steam-carousel carousel-vertical">
+              <!-- Main View -->
+              <div class="carousel-main">
+                <!-- Hiển thị mặc định ban đầu là ảnh -->
+                <img src="./assets/projects/farmpuzzle_img1.png" alt="FarmPuzzle Main View" class="main-image active">
+                <video loop muted playsinline class="main-video"></video>
+              </div>
+              
+              <!-- Thumbnails -->
+              <div class="carousel-thumbnails">
+                <!-- Thumb 1: Image -->
+                <div class="thumbnail-item active" data-type="image" data-src="./assets/projects/farmpuzzle_img1.png">
+                  <img src="./assets/projects/farmpuzzle_img1.png" alt="Thumb 1">
                 </div>
-              </a>
+                <!-- Thumb 2: Image -->
+                <div class="thumbnail-item" data-type="image" data-src="./assets/projects/farmpuzzle_img2.png">
+                  <img src="./assets/projects/farmpuzzle_img2.png" alt="Thumb 2">
+                </div>
+                <!-- Thumb 3: Video -->
+                <div class="thumbnail-item" data-type="video" data-src="./assets/projects/farmpuzzle.mp4">
+                  <img src="./assets/projects/farmpuzzle_video_thumb.png" alt="Video Thumb">
+                  <div class="play-icon-overlay"><i class="fa-solid fa-play"></i></div>
+                </div>
+              </div>
             </div>
           </article>
-          <!-- /END Project -->
 
-          <!-- Each .row is a project -->
-          <article class="row">
-            <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Project Title</h3>
-              <p class="project-wrapper__text-info">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deleniti voluptas, sit nam perspiciatis tempore aspernatur ullam
-                necessitatibus impedit repellendus vero sed ipsa eos beatae ab
-                sint saepe nostrum! Enim, perferendis.
+          <!-- Project 2: Treasure Diver -->
+          <article class="project-row" style="margin-top: 8rem; direction: rtl;"> 
+            <div class="project-info project-wrapper__text" style="direction: ltr;">
+              <h3>Treasure Diver</h3>
+              <p>
+                Game phiêu lưu hành động 2D/3D. Người chơi khám phá đại dương, né tránh quái vật, thu thập kho báu và nâng cấp chỉ số. Tập trung vào thiết kế Level, xử lý tương tác vật lý và lập trình AI bằng State Machine.
               </p>
-              <div class="project-wrapper__text-btns">
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >See Live</a
-                >
-                <a href="#" target="_blank" class="cta-btn text-color-main"
-                  >Source Code</a
-                >
+              
+              <!-- Technical Breakdown -->
+              <div class="tech-breakdown">
+                <span class="tech-tag">State Machine (FSM)</span>
+                <span class="tech-tag">Physics 2D/3D</span>
+                <span class="tech-tag">Spawning System</span>
+                <span class="tech-tag">Level Design</span>
+              </div>
+
+              <div class="project-btns">
+                <!-- <a href="#" target="_blank" class="cta-btn cta-btn--projects"><i class="fa-solid fa-download"></i> Download PC Build</a> -->
+                <a href="https://github.com/Duong4921/treasurediver" target="_blank" class="cta-btn cta-btn--secondary">
+                  <i class="fa-brands fa-github"></i> Source Code
+                </a>
               </div>
             </div>
 
-            <div class="project-wrapper__image">
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
-                  <img
-                    src="./assets/project.png"
-                    class="img-fluid"
-                    alt="Project Image"
-                    width="1366"
-                    height="767"
-                  />
+            <!-- Media Carousel (Steam-like) -->
+            <div class="project-media project-wrapper__image steam-carousel" style="direction: ltr;">
+              <!-- Main View -->
+              <div class="carousel-main">
+                <img src="./assets/projects/treasurediver_img1_thumb.png" alt="Treasure Diver Main View" class="main-image active">
+                <video loop muted playsinline class="main-video"></video>
+              </div>
+              
+              <!-- Thumbnails -->
+              <div class="carousel-thumbnails">
+                <!-- Cover / Title Screen (User named it as thumb) -->
+                <div class="thumbnail-item active" data-type="image" data-src="./assets/projects/treasurediver_img1_thumb.png">
+                  <img src="./assets/projects/treasurediver_img1_thumb.png" alt="Cover Screen">
                 </div>
-              </a>
-            </div>
-          </article>
-          <!-- /END Project -->
-
-          <!-- Each .row is a project -->
-          <article class="row">
-            <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Project Title</h3>
-              <p class="project-wrapper__text-info">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deleniti voluptas, sit nam perspiciatis tempore aspernatur ullam
-                necessitatibus impedit repellendus vero sed ipsa eos beatae ab
-                sint saepe nostrum! Enim, perferendis.
-              </p>
-              <div class="project-wrapper__text-btns">
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >See Live</a
-                >
-                <a href="#" target="_blank" class="cta-btn text-color-main"
-                  >Source Code</a
-                >
+                <!-- Image 1 -->
+                <div class="thumbnail-item" data-type="image" data-src="./assets/projects/treasurediver_img1.png">
+                  <img src="./assets/projects/treasurediver_img1.png" alt="Image 1">
+                </div>
+                <!-- Image 2 -->
+                <div class="thumbnail-item" data-type="image" data-src="./assets/projects/treasurediver_img2.png">
+                  <img src="./assets/projects/treasurediver_img2.png" alt="Image 2">
+                </div>
+                <!-- Image 3 -->
+                <div class="thumbnail-item" data-type="image" data-src="./assets/projects/treasurediver_img3.png">
+                  <img src="./assets/projects/treasurediver_img3.png" alt="Thumb 3">
+                </div>
+                <!-- Image 4 -->
+                <div class="thumbnail-item" data-type="image" data-src="./assets/projects/treasurediver_img4.png">
+                  <img src="./assets/projects/treasurediver_img4.png" alt="Thumb 4">
+                </div>
+                <!-- Video -->
+                <div class="thumbnail-item" data-type="video" data-src="./assets/projects/treasurediver.mp4">
+                  <img src="./assets/projects/treasurediver_video_thumb.png" alt="Video Thumb">
+                  <div class="play-icon-overlay"><i class="fa-solid fa-play"></i></div>
+                </div>
               </div>
             </div>
-
-            <div class="project-wrapper__image">
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
-                  <img
-                    src="./assets/project.png"
-                    class="img-fluid"
-                    alt="Project Image"
-                    width="1366"
-                    height="767"
-                  />
-                </div>
-              </a>
-            </div>
           </article>
-          <!-- /END Project -->
+
         </div>
       </div>
     </section>
-    <!-- End Projects Section -->
 
-    <!-- Contact Section -->
-    <section id="contact">
-      <div class="container">
-        <h2 class="section-title">Contact</h2>
-        <div class="contact-wrapper">
-          <p class="contact-wrapper__text">[Put your call to action here]</p>
-          <a href="#" class="cta-btn cta-btn--resume">Call to Action</a>
-        </div>
-      </div>
-    </section>
-    <!-- END Contact Section -->
 
-    <!-- Footer Section -->
+
+    <!-- Footer -->
     <footer class="footer">
       <div class="container">
-        <a href="#hero" class="back-to-top" aria-label="go back to top">
-          <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
-        </a>
         <div class="social-links">
-          <a
-            href="#!"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="twitter"
-          >
-            <i class="fa-brands fa-twitter"></i>
-          </a>
-          <a
-            href="#!"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="instagram"
-          >
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-          <a
-            href="#!"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="codepen"
-          >
-            <i class="fa-brands fa-codepen"></i>
-          </a>
-          <a
-            href="#!"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="linkedin"
-          >
-            <i class="fa-brands fa-linkedin"></i>
-          </a>
-          <a
-            href="#!"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="github"
-          >
-            <i class="fa-brands fa-github"></i>
-          </a>
+          <a href="https://github.com/Duong4921" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
         </div>
         <hr />
         <p class="footer__text">
-          &copy; <span id="year"></span> - Template by
-          <a
-            href="https://github.com/AnilSeervi"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Anil Seervi</a
-          >. <br />Made with &hearts;
+          &copy; <span id="year"></span> - Built for Game Development. <br />
+          Forked from DevFolio Template.
         </p>
       </div>
     </footer>
-    <!-- END Footer Section -->
 
+    <!-- Scripts -->
     <script>
-      document.getElementById("year").textContent = new Date().getFullYear()
+      document.getElementById("year").textContent = new Date().getFullYear();
     </script>
-    <script src="./javascript/vanilla-tilt.min.js"></script>
-    <script type="text/javascript" src="./javascript/valtilt.js"></script>
+    
+    <!-- ScrollReveal -->
+    <script src="./javascript/scrollreveal.min.js"></script>
+    <script src="./javascript/scrollveal.js"></script>
+    
+    <!-- Custom Theme Logic -->
+    <script src="./javascript/main.js"></script>
   </body>
 </html>
