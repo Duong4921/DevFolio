@@ -33,7 +33,7 @@
 }
 
 html {
-  font-size: 125%; /* Khôi phục lại cỡ chữ to gấp đôi cho Desktop */
+  font-size: 62.5%;
   scroll-behavior: smooth;
 }
 
