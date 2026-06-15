@@ -328,16 +328,29 @@ section {
   to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-.carousel-main img, .carousel-main video {
+.carousel-main img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Phủ kín khung hình */
+  object-fit: cover; /* Ảnh vẫn phủ kín khung hình */
   position: absolute;
   top: 0;
   left: 0;
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
+}
+
+.carousel-main video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Video phải hiển thị toàn bộ nội dung, không bị cắt xén khi Fullscreen */
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  background-color: #000;
 }
 
 .carousel-main img.active, .carousel-main video.active {
