@@ -238,7 +238,6 @@ section {
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
-  margin-bottom: 8rem;
 }
 
 @media(max-width: 992px) {
