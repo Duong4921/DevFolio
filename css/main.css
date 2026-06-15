@@ -470,10 +470,6 @@ section {
     padding: 0 2rem; /* Trả lại lề nhỏ cho điện thoại để không bị mất diện tích */
   }
   
-  .carousel-thumbnails {
-    justify-content: center;
-  }
-  
   .hero-avatar {
     width: 300px; /* Thu nhỏ ảnh còn một nửa trên điện thoại */
   }
