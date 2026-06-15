@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         carousels.forEach((carousel, index) => {
             const mainImg = carousel.querySelector('.main-image');
             const mainVid = carousel.querySelector('.main-video');
+            const spinner = carousel.querySelector('.loading-spinner');
             const thumbnails = carousel.querySelectorAll('.thumbnail-item');
             
             console.log(`Carousel ${index}: found ${thumbnails.length} thumbnails`);
@@ -52,6 +53,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     const type = thumb.getAttribute('data-type');
                     const src = thumb.getAttribute('data-src');
+                    
+                    // Hiện spinner khi bắt đầu tải
+                    if (spinner) spinner.classList.add('active');
 
                     if (type === 'image') {
                         // Dừng video nếu đang chạy
@@ -71,6 +75,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         mainImg.src = src;
                         mainImg.classList.add('active');
                         
+                        // Tắt spinner khi ảnh tải xong
+                        if (mainImg.complete) {
+                            if (spinner) spinner.classList.remove('active');
+                        } else {
+                            mainImg.onload = () => {
+                                if (spinner) spinner.classList.remove('active');
+                            };
+                        }
+                        
                     } else if (type === 'video') {
                         // Ẩn ảnh
                         mainImg.classList.remove('active');
@@ -78,6 +91,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         // Gán source và phát video
                         mainVid.src = src;
                         mainVid.classList.add('active');
+                        
+                        // Tắt spinner khi video có thể play
+                        if (mainVid.readyState >= 3) {
+                            if (spinner) spinner.classList.remove('active');
+                        } else {
+                            mainVid.oncanplay = () => {
+                                if (spinner) spinner.classList.remove('active');
+                            };
+                        }
+                        
                         mainVid.play().catch(err => {
                             console.log("Autoplay prevented or video load error: ", err);
                         });
