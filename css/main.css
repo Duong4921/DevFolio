@@ -172,7 +172,7 @@ section {
 
 .hero-cover {
   width: 100%;
-  height: 250px;
+  height: auto;
   object-fit: cover;
   border-radius: 20px;
   box-shadow: 0 0 30px var(--shadow-color);
