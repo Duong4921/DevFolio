@@ -172,7 +172,7 @@ section {
 
 .hero-cover {
   width: 110%; /* Rộng hơn avatar một chút */
-  height: 480px; /* Tăng thêm chiều cao thẻ */
+  height: 550px; /* Tăng thêm chiều cao thẻ lần 2 theo yêu cầu */
   object-fit: cover;
   object-position: center 10%; /* Đẩy trọng tâm bức ảnh lên phần trên (nơi có mặt mọi người) để không bị cắt */
   border-radius: 20px;
