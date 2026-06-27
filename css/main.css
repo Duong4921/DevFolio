@@ -171,9 +171,10 @@ section {
 }
 
 .hero-cover {
-  width: 100%;
-  height: auto;
+  width: 110%; /* Rộng hơn avatar một chút */
+  height: 380px; /* Tăng chiều cao để không bị lùn */
   object-fit: cover;
+  object-position: center 10%; /* Đẩy trọng tâm bức ảnh lên phần trên (nơi có mặt mọi người) để không bị cắt */
   border-radius: 20px;
   box-shadow: 0 0 30px var(--shadow-color);
 }
@@ -186,7 +187,7 @@ section {
   border-radius: 50%;
   border: 4px solid var(--accent-color);
   box-shadow: 0 0 30px var(--shadow-color);
-  margin-top: -120px; /* Đẩy avatar lùi lên đè vào ảnh bìa */
+  margin-top: -150px; /* Kéo avatar lùi lên để chừa lại phần dưới của ảnh bìa */
   z-index: 1;
   background-color: var(--bg-color); /* Tránh ảnh bìa xuyên thấu nếu avatar là PNG trong suốt */
 }
