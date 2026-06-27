@@ -180,7 +180,7 @@ section {
 }
 
 .hero-avatar {
-  width: 600px;
+  width: 450px; /* Thu nhỏ còn 3/4 so với 600px ban đầu */
   max-width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
