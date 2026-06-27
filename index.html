@@ -83,8 +83,56 @@
         <h2 class="section-title">Game Showcase</h2>
         <div class="project-wrapper">
 
-          <!-- Project 1: FarmPuzzle -->
+          <!-- Project 3: VietVRDefense -->
           <article class="project-row">
+            <div class="project-info project-wrapper__text">
+              <h3>Trấn Yêu Việt Sử (Prototype)</h3>
+              <p>
+                Một tựa game Tower Defense trải nghiệm trên kính thực tế ảo (VR) mang đậm bản sắc văn hóa Việt Nam (bản đồ Rằm Tháng 7, Vu Lan; nhân vật Sơn Tinh, Hưng Đạo Đại Vương, Mẫu Liễu Hạnh...). Trò chơi tích hợp cơ chế tương tác VR tiên tiến như nhận diện hành động vung tay (Attack Motion), hệ thống thẻ bài (Card System).
+              </p>
+              
+              <!-- Technical Breakdown -->
+              <div class="tech-breakdown">
+                <span class="tech-tag">Meta XR / OpenXR</span>
+              </div>
+
+              <div class="project-btns">
+                <!-- Nút ẩn để giữ bố cục giống các dự án trên nếu cần -->
+              </div>
+            </div>
+
+            <!-- Media Carousel (Steam-like) -->
+            <div class="project-media project-wrapper__image steam-carousel">
+              <!-- Main View -->
+              <div class="carousel-main">
+                <div class="loading-spinner"></div>
+                <img src="./assets/ProjectVR/imgVR2.jpg" alt="VietVRDefense Main View" class="main-image active">
+                <video loop muted playsinline controls class="main-video"></video>
+              </div>
+              
+              <!-- Thumbnails -->
+              <div class="carousel-thumbnails">
+                <div class="thumbnail-item active" data-type="image" data-src="./assets/ProjectVR/imgVR2.jpg">
+                  <img src="./assets/ProjectVR/imgVR2.jpg" alt="Image 1">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/ProjectVR/imgVR3.jpg">
+                  <img src="./assets/ProjectVR/imgVR3.jpg" alt="Image 2">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/ProjectVR/imgVR4.jpg">
+                  <img src="./assets/ProjectVR/imgVR4.jpg" alt="Image 3">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/ProjectVR/imgVR5.jpg">
+                  <img src="./assets/ProjectVR/imgVR5.jpg" alt="Image 4">
+                </div>
+                <div class="thumbnail-item" data-type="video" data-src="./assets/ProjectVR/VR%20Prototype.mp4">
+                  <div class="play-icon-overlay"><i class="fa-solid fa-play"></i></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 1: FarmPuzzle -->
+          <article class="project-row" style="direction: rtl;">
             <div class="project-info project-wrapper__text">
               <h3>FarmPuzzle</h3>
               <p>
@@ -137,7 +185,7 @@
           </article>
 
           <!-- Project 2: Treasure Diver -->
-          <article class="project-row" style="direction: rtl;"> 
+          <article class="project-row"> 
             <div class="project-info project-wrapper__text" style="direction: ltr;">
               <h3>Treasure Diver</h3>
               <p>
@@ -194,58 +242,6 @@
                 <!-- Video -->
                 <div class="thumbnail-item" data-type="video" data-src="./assets/projects/treasurediver.mp4">
                   <img src="./assets/projects/treasurediver_video_thumb.png" alt="Video Thumb">
-                  <div class="play-icon-overlay"><i class="fa-solid fa-play"></i></div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project 3: VietVRDefense -->
-          <article class="project-row">
-            <div class="project-info project-wrapper__text">
-              <h3>VietVRDefense (VR-DATN-GAME)</h3>
-              <p>
-                Một tựa game Tower Defense trải nghiệm trên kính thực tế ảo (VR) mang đậm bản sắc văn hóa Việt Nam (bản đồ Rằm Tháng 7, Vu Lan; nhân vật Sơn Tinh, Hưng Đạo Đại Vương, Mẫu Liễu Hạnh...). Trò chơi tích hợp cơ chế tương tác VR tiên tiến như nhận diện hành động vung tay (Attack Motion), hệ thống thẻ bài (Card System), và đặt tháp vật lý (Ghost Tower Placement). Vai trò: Team Leader / Lead Unity Developer.
-              </p>
-              
-              <!-- Technical Breakdown -->
-              <div class="tech-breakdown">
-                <span class="tech-tag">Meta XR / OpenXR</span>
-                <span class="tech-tag">URP Graphics</span>
-                <span class="tech-tag">Clean Architecture</span>
-                <span class="tech-tag">Event Bus</span>
-              </div>
-
-              <div class="project-btns">
-                <!-- Nút ẩn để giữ bố cục giống các dự án trên nếu cần -->
-              </div>
-            </div>
-
-            <!-- Media Carousel (Steam-like) -->
-            <div class="project-media project-wrapper__image steam-carousel">
-              <!-- Main View -->
-              <div class="carousel-main">
-                <div class="loading-spinner"></div>
-                <img src="./assets/ProjectVR/imgVR2.jpg" alt="VietVRDefense Main View" class="main-image active">
-                <video loop muted playsinline controls class="main-video"></video>
-              </div>
-              
-              <!-- Thumbnails -->
-              <div class="carousel-thumbnails">
-                <div class="thumbnail-item active" data-type="image" data-src="./assets/ProjectVR/imgVR2.jpg">
-                  <img src="./assets/ProjectVR/imgVR2.jpg" alt="Image 1">
-                </div>
-                <div class="thumbnail-item" data-type="image" data-src="./assets/ProjectVR/imgVR3.jpg">
-                  <img src="./assets/ProjectVR/imgVR3.jpg" alt="Image 2">
-                </div>
-                <div class="thumbnail-item" data-type="image" data-src="./assets/ProjectVR/imgVR4.jpg">
-                  <img src="./assets/ProjectVR/imgVR4.jpg" alt="Image 3">
-                </div>
-                <div class="thumbnail-item" data-type="image" data-src="./assets/ProjectVR/imgVR5.jpg">
-                  <img src="./assets/ProjectVR/imgVR5.jpg" alt="Image 4">
-                </div>
-                <div class="thumbnail-item" data-type="video" data-src="./assets/ProjectVR/VR%20Prototype.mp4">
-                  <img src="./assets/ProjectVR/imgVR3.jpg" alt="Video Thumb">
                   <div class="play-icon-overlay"><i class="fa-solid fa-play"></i></div>
                 </div>
               </div>
