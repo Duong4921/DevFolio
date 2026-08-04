@@ -152,6 +152,30 @@ section {
   color: var(--text-primary);
 }
 
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.hero-cta .cta-btn {
+  margin-left: 0; /* Reset margin vì đã dùng gap */
+}
+
+.cta-btn--facebook {
+  background-color: transparent;
+  border: 2px solid #1877f2;
+  color: #1877f2;
+  margin-left: 0;
+}
+
+.cta-btn--facebook:hover {
+  background-color: #1877f2;
+  color: #fff;
+  box-shadow: 0 0 20px #1877f280;
+}
+
 /* --- Hero Section --- */
 #hero {
   min-height: 100vh;
