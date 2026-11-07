@@ -129,15 +129,16 @@ section {
 
 .cta-btn--hero, .cta-btn--projects {
   background-color: transparent;
-  border: 2px solid var(--accent-color);
+  border: 1.5px solid var(--accent-color);
   color: var(--accent-color);
-  box-shadow: 0 0 10px var(--shadow-color) inset, 0 0 10px var(--shadow-color);
+  box-shadow: none;
 }
 
 .cta-btn--hero:hover, .cta-btn--projects:hover {
   background-color: var(--accent-color);
   color: #121212;
-  box-shadow: 0 0 20px var(--accent-color);
+  box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25);
+  transform: translateY(-2px);
 }
 
 .cta-btn--secondary {
@@ -271,9 +272,17 @@ section {
 
 .project-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 4rem;
   align-items: center;
+}
+
+.project-wrapper__text,
+.project-wrapper__image,
+.project-info,
+.project-media {
+  min-width: 0;
+  max-width: 100%;
 }
 
 @media(max-width: 992px) {
@@ -318,6 +327,10 @@ section {
   flex-wrap: wrap;
 }
 
+.project-btns .cta-btn {
+  margin-left: 0;
+}
+
 
 /* --- Steam Carousel --- */
 .steam-carousel {
@@ -328,6 +341,9 @@ section {
   box-shadow: none;
   background: transparent;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .carousel-main {
@@ -394,18 +410,100 @@ section {
   pointer-events: auto;
 }
 
+/* --- Carousel Thumbnails Wrapper & Controls --- */
+.carousel-thumbnails-wrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 1rem;
+}
+
 .carousel-thumbnails {
   display: flex;
   gap: 1rem;
   overflow-x: auto;
-  padding-bottom: 0.5rem;
+  padding: 0.4rem 0.2rem 0.8rem 0.2rem;
   scroll-behavior: smooth;
-  /* Ẩn thanh cuộn cho webkit (Chrome/Safari) */
-  scrollbar-width: none; /* Cho Firefox */
+  /* Hiển thị thanh cuộn mượt mà chuẩn hiện đại */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 255, 136, 0.45) rgba(255, 255, 255, 0.05);
+  user-select: none;
+  cursor: grab;
 }
 
+.carousel-thumbnails.is-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+}
+
+/* Custom Scrollbar for Chrome / Edge / Safari */
 .carousel-thumbnails::-webkit-scrollbar {
-  display: none;
+  height: 6px;
+  display: block;
+}
+
+.carousel-thumbnails::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.carousel-thumbnails::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 136, 0.4);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.carousel-thumbnails::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
+}
+
+/* Carousel Navigation Arrows (< and >) */
+.carousel-nav-btn {
+  position: absolute;
+  top: calc(50% - 4px);
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(11, 15, 25, 0.9);
+  border: 1px solid rgba(0, 255, 136, 0.4);
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  cursor: pointer;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+  opacity: 0.9;
+}
+
+.carousel-nav-btn:hover {
+  background: var(--accent-color);
+  color: #0b0f19;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.9);
+  transform: translateY(-50%) scale(1.12);
+  opacity: 1;
+}
+
+.carousel-nav-btn.prev {
+  left: -14px;
+}
+
+.carousel-nav-btn.next {
+  right: -14px;
+}
+
+@media (max-width: 768px) {
+  .carousel-nav-btn.prev {
+    left: 2px;
+  }
+  .carousel-nav-btn.next {
+    right: 2px;
+  }
 }
 
 .thumbnail-item {
@@ -561,4 +659,1708 @@ section {
 .footer__text {
   font-size: 1.4rem;
   color: #666;
+}
+
+
+/* --- Project Enhancements & Badges --- */
+.project-badge {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent-secondary);
+  background: rgba(0, 210, 255, 0.1);
+  border: 1px solid rgba(0, 210, 255, 0.3);
+  padding: 0.3rem 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+/* Project App Icon in Header */
+.project-header-row {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.project-header-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.project-header-text .project-badge {
+  display: inline-block;
+  margin-bottom: 0.4rem;
+}
+
+.project-app-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .project-header-row {
+    gap: 1rem;
+  }
+  .project-app-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+  }
+}
+
+
+.carousel-overlay-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  backdrop-filter: blur(4px);
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.playable-variants-quicklist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.quicklist-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.quicklist-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.variant-pill-btn {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: all 0.25s ease;
+}
+
+.variant-pill-btn:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  background: rgba(0, 255, 136, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+/* --- Playable Ads Interactive Modal --- */
+.playable-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(5, 5, 8, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.playable-modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.playable-modal-container {
+  background: var(--bg-secondary);
+  border: 1px solid rgba(0, 255, 136, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 255, 136, 0.15);
+  width: 100%;
+  max-width: 960px;
+  max-height: 96vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: scale(0.95);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.playable-modal-backdrop.active .playable-modal-container {
+  transform: scale(1);
+}
+
+/* Modal Header */
+.playable-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--glass-border);
+  background: rgba(20, 20, 26, 0.8);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.modal-title-area {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.modal-live-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 46, 99, 0.15);
+  border: 1px solid #ff2e63;
+  color: #ff2e63;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  padding: 0.2rem 0.8rem;
+  border-radius: 12px;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ff2e63;
+  box-shadow: 0 0 8px #ff2e63;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.75); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.modal-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modal-btn {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: all 0.2s ease;
+}
+
+.modal-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--text-primary);
+}
+
+.modal-btn--close {
+  background: rgba(255, 46, 99, 0.1);
+  border-color: rgba(255, 46, 99, 0.3);
+  color: #ff2e63;
+  font-size: 1.6rem;
+  padding: 0.6rem 1rem;
+}
+
+.modal-btn--close:hover {
+  background: #ff2e63;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(255, 46, 99, 0.5);
+}
+
+/* Variant Tabs */
+.playable-variant-tabs {
+  display: flex;
+  background: rgba(15, 15, 20, 0.9);
+  padding: 0.8rem 1.5rem;
+  gap: 0.8rem;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--glass-border);
+  scrollbar-width: thin;
+}
+
+.variant-tab-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  padding: 0.8rem 1.4rem;
+  border-radius: 8px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.25s ease;
+}
+
+.variant-tab-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.variant-tab-btn.active {
+  color: var(--accent-color);
+  background: rgba(0, 255, 136, 0.12);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
+}
+
+/* Modal Body & Frame */
+.playable-modal-body {
+  padding: 1.5rem;
+  background: #09090c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 480px;
+  overflow: hidden;
+}
+
+.game-frame-wrapper {
+  position: relative;
+  background: #000;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  transition: width 0.35s ease, height 0.35s ease, aspect-ratio 0.35s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-frame-wrapper.viewport-mobile {
+  width: 360px;
+  max-width: 100%;
+  height: 600px;
+  max-height: calc(85vh - 180px);
+  border-radius: 18px;
+  border: 3px solid #2d2d38;
+}
+
+.game-frame-wrapper.viewport-landscape {
+  width: 100%;
+  max-width: 860px;
+  aspect-ratio: 16 / 9;
+  max-height: calc(85vh - 180px);
+  border-radius: 12px;
+  border: 2px solid #2d2d38;
+}
+
+#playable-game-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #000;
+}
+
+.game-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 15, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  color: var(--accent-color);
+  font-size: 1.4rem;
+  font-weight: 600;
+  z-index: 5;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.game-loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.game-loader-spinner {
+  width: 45px;
+  height: 45px;
+  border: 3px solid rgba(0, 255, 136, 0.2);
+  border-top-color: var(--accent-color);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Modal Footer */
+.playable-modal-footer {
+  padding: 1.2rem 2rem;
+  background: rgba(15, 15, 20, 0.9);
+  border-top: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-hint {
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.modal-hint i {
+  color: #ffbb00;
+}
+
+@media(max-width: 768px) {
+  .playable-modal-header {
+    padding: 1rem 1.5rem;
+  }
+  
+  .modal-btn .btn-text {
+    display: none;
+  }
+
+  .game-frame-wrapper.viewport-mobile {
+    width: 100%;
+    height: 520px;
+  }
+
+  .playable-modal-footer {
+    padding: 1rem 1.5rem;
+  }
+  
+  .modal-hint {
+    font-size: 1.2rem;
+  }
+}
+
+
+/* --- QA & Playtesting Section --- */
+.qa-section {
+  padding: 10rem 0;
+  position: relative;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 210, 255, 0.03) 50%, transparent 100%);
+}
+
+.section-subtitle {
+  text-align: center;
+  max-width: 800px;
+  margin: -2rem auto 5rem;
+  color: var(--text-secondary);
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+
+.qa-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 3.5rem;
+}
+
+.qa-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.qa-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-secondary), var(--accent-color));
+  opacity: 0.8;
+}
+
+.qa-card.monetization::before {
+  background: linear-gradient(90deg, #ff9f43, #ff5252);
+}
+
+.qa-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 255, 136, 0.3);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 210, 255, 0.1);
+}
+
+.qa-card.monetization:hover {
+  border-color: rgba(255, 159, 67, 0.4);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 159, 67, 0.15);
+}
+
+.qa-card-header {
+  margin-bottom: 2rem;
+}
+
+.qa-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.2rem;
+}
+
+.qa-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+}
+
+.qa-badge.feature {
+  color: #00d2ff;
+  background: rgba(0, 210, 255, 0.12);
+  border: 1px solid rgba(0, 210, 255, 0.3);
+}
+
+.qa-badge.monetization {
+  color: #ff9f43;
+  background: rgba(255, 159, 67, 0.12);
+  border: 1px solid rgba(255, 159, 67, 0.3);
+}
+
+.qa-target-platform {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.qa-card-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.qa-card-desc {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* QA Key Highlights / Responsibilities */
+.qa-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.qa-highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  font-size: 1.45rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.qa-highlight-item .item-icon {
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+  font-size: 1.5rem;
+  color: var(--accent-color);
+}
+
+.qa-card.monetization .qa-highlight-item .item-icon {
+  color: #ff9f43;
+}
+
+.qa-highlight-item strong {
+  color: var(--accent-secondary);
+}
+
+.qa-card.monetization .qa-highlight-item strong {
+  color: #ff9f43;
+}
+
+.qa-card-footer {
+  margin-top: auto;
+  padding-top: 2rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.cta-btn--qa-hero {
+  background-color: transparent;
+  border: 1.5px solid var(--accent-secondary);
+  color: var(--accent-secondary);
+  box-shadow: none;
+  margin-left: 0;
+}
+
+.cta-btn--qa-hero:hover {
+  background-color: var(--accent-secondary);
+  color: #121212;
+  box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.cta-btn--qa-action {
+  background-color: transparent;
+  border: 2px solid var(--accent-secondary);
+  color: var(--accent-secondary);
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.15) inset;
+}
+
+.cta-btn--qa-action:hover {
+  background-color: var(--accent-secondary);
+  color: #121212;
+  box-shadow: 0 0 20px var(--accent-secondary);
+}
+
+.cta-btn--qa-action.monetization {
+  border-color: #ff9f43;
+  color: #ff9f43;
+  box-shadow: 0 0 10px rgba(255, 159, 67, 0.15) inset;
+}
+
+.cta-btn--qa-action.monetization:hover {
+  background-color: #ff9f43;
+  color: #121212;
+  box-shadow: 0 0 20px #ff9f43;
+}
+
+@media(max-width: 576px) {
+  .qa-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .qa-card {
+    padding: 2.2rem;
+  }
+  
+  .qa-card-title {
+    font-size: 2rem;
+  }
+}
+
+
+/* --- Store Buttons & YouTube Carousel Styles --- */
+.carousel-main .main-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.carousel-main .main-iframe.active {
+  display: block;
+}
+
+.cta-btn--store {
+  background-color: transparent;
+  border: 1.5px solid #01875f;
+  color: #00e676;
+  box-shadow: none;
+}
+
+.cta-btn--store:hover {
+  background-color: #01875f;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(1, 135, 95, 0.3);
+  transform: translateY(-2px);
+}
+
+.cta-btn--store-apple {
+  background-color: transparent;
+  border: 1.5px solid #0071e3;
+  color: #29b6f6;
+  box-shadow: none;
+}
+
+.cta-btn--store-apple:hover {
+  background-color: #0071e3;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 113, 227, 0.3);
+  transform: translateY(-2px);
+}
+
+.cta-btn--youtube {
+  background-color: transparent;
+  border: 1.5px solid #ff3333;
+  color: #ff5252;
+  box-shadow: none;
+}
+
+.cta-btn--youtube:hover {
+  background-color: #ff0000;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.thumbnail-item .play-icon-overlay i.fa-youtube {
+  font-size: 2.4rem;
+  color: #ff0000;
+  background: #fff;
+  border-radius: 50%;
+  padding: 0.2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Cosmic Battle Feature Contributions & GDD Specs --- */
+.feature-contributions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin: 1.6rem 0;
+  width: 100%;
+}
+
+.feature-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-left: 3px solid var(--accent-color);
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  transition: all 0.25s ease;
+}
+
+.feature-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(0, 255, 136, 0.35);
+  border-left-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.feature-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.feature-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--text-primary);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.feature-title-group i {
+  color: var(--accent-color);
+  font-size: 1.5rem;
+}
+
+.gdd-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  background: rgba(66, 133, 244, 0.15);
+  border: 1px solid rgba(66, 133, 244, 0.4);
+  color: #8ab4f8;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.gdd-badge:hover {
+  background: #4285f4;
+  color: #ffffff;
+  border-color: #4285f4;
+  box-shadow: 0 2px 12px rgba(66, 133, 244, 0.4);
+  transform: translateY(-1px);
+}
+
+.feature-item p {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.feature-item code {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 1.25rem;
+  color: var(--accent-color);
+  font-family: monospace;
+}
+
+.cta-btn--doc {
+  background-color: transparent;
+  border: 2px solid #4285f4;
+  color: #8ab4f8;
+}
+
+.cta-btn--doc:hover {
+  background-color: #4285f4;
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(66, 133, 244, 0.6);
+  transform: translateY(-2px);
+}
+
+/* --- Role Clarification Banner --- */
+.role-clarification-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  background: rgba(0, 210, 255, 0.08);
+  border: 1px solid rgba(0, 210, 255, 0.2);
+  border-left: 3px solid var(--accent-secondary);
+  border-radius: 6px;
+  padding: 1rem 1.4rem;
+  margin: 1.2rem 0 1.6rem 0;
+  font-size: 1.35rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.role-clarification-banner i {
+  color: var(--accent-secondary);
+  font-size: 1.6rem;
+  margin-top: 0.3rem;
+  flex-shrink: 0;
+}
+
+.role-clarification-banner strong {
+  color: var(--accent-secondary);
+}
+
+.role-clarification-banner em {
+  color: #ffca28;
+  font-style: normal;
+  font-weight: 700;
+}
+
+/* --- Portfolio Main Tab Switcher (Dev Projects vs QA Playtest) --- */
+.portfolio-tab-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0 auto 4.5rem auto;
+  padding: 0.6rem;
+  background: rgba(30, 30, 36, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  max-width: 620px;
+  width: fit-content;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.portfolio-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 2.4rem;
+  border-radius: 40px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+
+.portfolio-tab-btn i {
+  font-size: 1.6rem;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-tab-btn .tab-badge {
+  display: inline-block;
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.portfolio-tab-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.portfolio-tab-btn:hover i {
+  transform: scale(1.15);
+}
+
+.portfolio-tab-btn.active {
+  background: rgba(0, 255, 136, 0.12);
+  color: var(--accent-color);
+  border-color: rgba(0, 255, 136, 0.4);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.25), inset 0 0 12px rgba(0, 255, 136, 0.1);
+}
+
+.portfolio-tab-btn.active .tab-badge {
+  background: rgba(0, 255, 136, 0.25);
+  color: var(--accent-color);
+}
+
+/* Secondary QA Tab Active State (Cyan glow) */
+.portfolio-tab-btn[data-target="qa-playtest-tab"].active {
+  background: rgba(0, 210, 255, 0.12);
+  color: var(--accent-secondary);
+  border-color: rgba(0, 210, 255, 0.4);
+  box-shadow: 0 0 20px rgba(0, 210, 255, 0.25), inset 0 0 12px rgba(0, 210, 255, 0.1);
+}
+
+.portfolio-tab-btn[data-target="qa-playtest-tab"].active .tab-badge {
+  background: rgba(0, 210, 255, 0.25);
+  color: var(--accent-secondary);
+}
+
+/* Tab Content Panes */
+.portfolio-tab-content {
+  display: none;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.portfolio-tab-content.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  animation: tabFadeIn 0.35s ease forwards;
+}
+
+@keyframes tabFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .portfolio-tab-nav {
+    border-radius: 16px;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.8rem;
+    padding: 0.8rem;
+  }
+  .portfolio-tab-btn {
+    width: 100%;
+    justify-content: center;
+    border-radius: 12px;
+    padding: 1.1rem 1.6rem;
+  }
+}
+
+/* --- Expandable Project Details & Toggle Button --- */
+.project-summary {
+  font-size: 1.45rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 1.2rem;
+}
+
+.project-expandable {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin 0.3s ease;
+  margin-top: 0;
+}
+
+.project-expandable.is-expanded {
+  max-height: 1500px;
+  opacity: 1;
+  margin-top: 1.5rem;
+}
+
+.project-expand-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 0.8rem 1.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  outline: none;
+  margin-left: 0;
+}
+
+.project-expand-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.project-expand-btn i {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.project-expand-btn.is-active {
+  background: rgba(0, 255, 136, 0.08);
+  border-color: rgba(0, 255, 136, 0.3);
+  color: var(--accent-color);
+}
+
+.project-expand-btn.is-active i {
+  transform: rotate(180deg);
+}
+
+
+.project-role-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.25rem;
+  color: var(--accent-secondary);
+  background: rgba(0, 210, 255, 0.08);
+  border: 1px solid rgba(0, 210, 255, 0.2);
+  padding: 0.3rem 0.9rem;
+  border-radius: 4px;
+  margin-top: 0.4rem;
+  margin-bottom: 0.6rem;
+}
+.project-role-note i {
+  color: var(--accent-secondary);
+}
+
+
+/* ==========================================================================
+   Comprehensive Light Mode Theme Overrides
+   ========================================================================== */
+body.light-mode {
+  --bg-color: #f8fafc;
+  --bg-secondary: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --accent-color: #005fdf;
+  --accent-secondary: #0284c7;
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --shadow-color: rgba(0, 95, 223, 0.2);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+}
+
+/* --- Section Titles & Headers in Light Mode --- */
+body.light-mode .section-title {
+  color: #0f172a;
+}
+body.light-mode .section-title::after {
+  background: linear-gradient(90deg, #005fdf, #0284c7);
+}
+
+/* --- Showcase Tab Navigation in Light Mode --- */
+body.light-mode .portfolio-tab-nav {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.07);
+}
+
+body.light-mode .portfolio-tab-btn {
+  color: #64748b;
+  background: transparent;
+}
+
+body.light-mode .portfolio-tab-btn:hover {
+  color: #005fdf;
+  background: #f1f5f9;
+}
+
+body.light-mode .portfolio-tab-btn .tab-badge {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+body.light-mode .portfolio-tab-btn.active {
+  background: #005fdf;
+  color: #ffffff;
+  border-color: #005fdf;
+  box-shadow: 0 4px 16px rgba(0, 95, 223, 0.35);
+}
+
+body.light-mode .portfolio-tab-btn.active .tab-badge {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+body.light-mode .portfolio-tab-btn[data-target="qa-playtest-tab"].active {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.35);
+}
+
+body.light-mode .portfolio-tab-btn[data-target="qa-playtest-tab"].active .tab-badge {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+/* --- Project Cards & Typography in Light Mode --- */
+body.light-mode .project-row {
+  border-color: #e2e8f0;
+}
+
+body.light-mode .project-info h3 {
+  color: #0f172a;
+}
+
+body.light-mode .project-summary {
+  color: #334155;
+}
+
+body.light-mode .project-summary strong {
+  color: #0f172a;
+}
+
+/* --- Badges & Notes in Light Mode --- */
+body.light-mode .project-badge {
+  background: #e0f2fe;
+  border-color: #bae6fd;
+  color: #0369a1;
+  font-weight: 700;
+}
+
+body.light-mode .project-role-note {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+  color: #15803d;
+}
+
+body.light-mode .project-role-note i {
+  color: #16a34a;
+}
+
+body.light-mode .role-clarification-banner {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  border-left: 4px solid #005fdf;
+  color: #1e3a8a;
+  box-shadow: 0 2px 8px rgba(0, 95, 223, 0.06);
+}
+
+body.light-mode .role-clarification-banner strong {
+  color: #005fdf;
+}
+
+body.light-mode .role-clarification-banner em {
+  color: #b45309;
+}
+
+/* --- Tech Tags in Light Mode --- */
+body.light-mode .tech-tag {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+body.light-mode .tech-tag:hover {
+  background: #f8fafc;
+  border-color: #005fdf;
+  color: #005fdf;
+}
+
+/* --- Action Buttons in Light Mode --- */
+body.light-mode .cta-btn--projects {
+  border-color: #005fdf;
+  color: #005fdf;
+  background: transparent;
+  font-weight: 700;
+}
+
+body.light-mode .cta-btn--projects:hover {
+  background: #005fdf;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 95, 223, 0.3);
+}
+
+body.light-mode .project-expand-btn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .project-expand-btn:hover {
+  background: #f8fafc;
+  border-color: #005fdf;
+  color: #005fdf;
+}
+
+body.light-mode .project-expand-btn.is-active {
+  background: #eff6ff;
+  border-color: #3b82f6;
+  color: #1d4ed8;
+}
+
+body.light-mode .cta-btn--store {
+  border-color: #059669;
+  color: #059669;
+  background: transparent;
+}
+
+body.light-mode .cta-btn--store:hover {
+  background: #059669;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.3);
+}
+
+body.light-mode .cta-btn--store-apple {
+  border-color: #0284c7;
+  color: #0284c7;
+  background: transparent;
+}
+
+body.light-mode .cta-btn--store-apple:hover {
+  background: #0284c7;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+}
+
+body.light-mode .cta-btn--youtube {
+  border-color: #dc2626;
+  color: #dc2626;
+  background: transparent;
+}
+
+body.light-mode .cta-btn--youtube:hover {
+  background: #dc2626;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.3);
+}
+
+/* --- Expandable Features in Light Mode --- */
+body.light-mode .feature-item {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+body.light-mode .feature-title-group span {
+  color: #0f172a;
+}
+
+body.light-mode .feature-title-group i {
+  color: #005fdf;
+}
+
+body.light-mode .feature-item p {
+  color: #475569;
+}
+
+body.light-mode .feature-item code {
+  background: #f1f5f9;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+}
+
+body.light-mode .quicklist-title {
+  color: #1e293b;
+}
+
+body.light-mode .quicklist-item {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+}
+
+body.light-mode .quicklist-item:hover {
+  background: #f8fafc;
+  border-color: #005fdf;
+  color: #005fdf;
+}
+
+/* --- Carousel & Controls in Light Mode --- */
+body.light-mode .carousel-main {
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .carousel-overlay-badge {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid #005fdf;
+  color: #005fdf;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .thumbnail-item {
+  background: #e2e8f0;
+  border-color: transparent;
+}
+
+body.light-mode .thumbnail-item.active {
+  border-color: #005fdf;
+  box-shadow: 0 0 12px rgba(0, 95, 223, 0.35);
+}
+
+body.light-mode .carousel-nav-btn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+body.light-mode .carousel-nav-btn:hover {
+  background: #005fdf;
+  color: #ffffff;
+  border-color: #005fdf;
+  box-shadow: 0 4px 16px rgba(0, 95, 223, 0.4);
+}
+
+body.light-mode .carousel-thumbnails {
+  scrollbar-color: rgba(0, 95, 223, 0.4) #f1f5f9;
+}
+
+body.light-mode .carousel-thumbnails::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+body.light-mode .carousel-thumbnails::-webkit-scrollbar-thumb {
+  background: rgba(0, 95, 223, 0.4);
+}
+
+body.light-mode .carousel-thumbnails::-webkit-scrollbar-thumb:hover {
+  background: #005fdf;
+}
+
+/* --- Skills Section in Light Mode --- */
+body.light-mode #skills {
+  background-color: #f1f5f9;
+}
+
+body.light-mode .skill-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+body.light-mode .skill-card:hover {
+  border-color: #005fdf;
+  box-shadow: 0 8px 25px rgba(0, 95, 223, 0.12);
+}
+
+body.light-mode .skill-card i {
+  color: #005fdf;
+}
+
+body.light-mode .skill-card h3 {
+  color: #0f172a;
+}
+
+/* --- QA & Playtesting Section in Light Mode --- */
+body.light-mode .qa-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .qa-card-title {
+  color: #0f172a;
+}
+
+body.light-mode .qa-card-desc {
+  color: #475569;
+}
+
+body.light-mode .qa-badge.analysis {
+  background: #e0f2fe;
+  color: #0369a1;
+  border-color: #bae6fd;
+}
+
+body.light-mode .qa-badge.feature {
+  background: #fef3c7;
+  color: #b45309;
+  border-color: #fde68a;
+}
+
+body.light-mode .qa-target-platform {
+  background: #f1f5f9;
+  color: #475569;
+  border-color: #e2e8f0;
+}
+
+body.light-mode .qa-highlight-item {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+}
+
+body.light-mode .qa-highlight-item .item-icon {
+  color: #059669;
+}
+
+body.light-mode .qa-highlight-item strong {
+  color: #0f172a;
+}
+
+body.light-mode .qa-stat-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+body.light-mode .qa-stat-num {
+  color: #005fdf;
+}
+
+body.light-mode .qa-stat-label {
+  color: #64748b;
+}
+
+/* --- Hero Section & Nav in Light Mode --- */
+body.light-mode #hero {
+  background: #f8fafc;
+}
+
+body.light-mode .hero-title {
+  color: #0f172a;
+}
+
+body.light-mode .cta-btn--hero {
+  background: #005fdf;
+  border-color: #005fdf;
+  color: #ffffff;
+}
+
+body.light-mode .cta-btn--hero:hover {
+  background: #0046b3;
+  box-shadow: 0 4px 16px rgba(0, 95, 223, 0.4);
+}
+
+body.light-mode .cta-btn--qa-hero {
+  border-color: #0284c7;
+  color: #0284c7;
+  background: transparent;
+}
+
+body.light-mode .cta-btn--qa-hero:hover {
+  background: #0284c7;
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.4);
+}
+
+body.light-mode .cta-btn--secondary {
+  border-color: #e11d48;
+  color: #e11d48;
+  background: transparent;
+}
+
+body.light-mode .cta-btn--secondary:hover {
+  background: #e11d48;
+  color: #ffffff;
+}
+
+body.light-mode .cta-btn--facebook {
+  border-color: #1877f2;
+  color: #1877f2;
+  background: transparent;
+}
+
+body.light-mode .cta-btn--facebook:hover {
+  background: #1877f2;
+  color: #ffffff;
+}
+
+body.light-mode .theme-toggle-btn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .theme-toggle-btn:hover {
+  background: #f1f5f9;
+  border-color: #005fdf;
+  color: #005fdf;
+}
+
+/* --- Playable Ads Modal in Light Mode --- */
+body.light-mode .playable-modal-backdrop {
+  background: rgba(15, 23, 42, 0.6);
+}
+
+body.light-mode .playable-modal-container {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+body.light-mode .playable-modal-header {
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+body.light-mode .modal-title {
+  color: #0f172a;
+}
+
+body.light-mode .modal-btn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+}
+
+body.light-mode .modal-btn:hover {
+  background: #f1f5f9;
+  color: #005fdf;
+  border-color: #005fdf;
+}
+
+body.light-mode .playable-variant-tabs {
+  background: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+body.light-mode .variant-tab-btn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+}
+
+body.light-mode .variant-tab-btn:hover {
+  color: #005fdf;
+  border-color: #005fdf;
+}
+
+body.light-mode .variant-tab-btn.active {
+  background: #005fdf;
+  color: #ffffff;
+  border-color: #005fdf;
+}
+
+body.light-mode .playable-modal-footer {
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+body.light-mode .modal-hint {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e40af;
+}
+
+/* --- Footer in Light Mode --- */
+body.light-mode .footer {
+  background: #f1f5f9;
+  border-top: 1px solid #e2e8f0;
+  color: #64748b;
+}
+
+body.light-mode .footer a {
+  color: #005fdf;
+}
+
+body.light-mode .footer .back-to-top i {
+  color: #0f172a;
+}
+
+
+/* --- Brand Specific Source Code Buttons (GitLab & GitHub) --- */
+.fa-gitlab,
+.fa-brands.fa-gitlab {
+  color: #fc6d26 !important;
+  transition: color 0.25s ease;
+}
+
+/* --- Git Buttons (GitLab & GitHub) --- */
+.cta-btn--gitlab {
+  background-color: rgba(252, 109, 38, 0.08) !important;
+  border: 2px solid #fc6d26 !important;
+  color: #fc6d26 !important;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  direction: ltr !important;
+}
+
+.cta-btn--gitlab i {
+  color: #fc6d26 !important;
+  font-size: 1.8rem;
+  transition: color 0.25s ease;
+}
+
+.cta-btn--gitlab:hover {
+  background-color: #fc6d26 !important;
+  color: #ffffff !important;
+  border-color: #fc6d26 !important;
+  box-shadow: 0 0 15px rgba(252, 109, 38, 0.4) !important;
+  transform: translateY(-2px);
+}
+
+.cta-btn--gitlab:hover i {
+  color: #ffffff !important;
+}
+
+.cta-btn--github {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border: 2px solid rgba(255, 255, 255, 0.6) !important;
+  color: #f0f6fc !important;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  direction: ltr !important;
+}
+
+.cta-btn--github i {
+  color: #f0f6fc !important;
+  font-size: 1.8rem;
+  transition: color 0.25s ease;
+}
+
+.cta-btn--github:hover {
+  background-color: #ffffff !important;
+  color: #0d1117 !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4) !important;
+  transform: translateY(-2px);
+}
+
+.cta-btn--github:hover i {
+  color: #0d1117 !important;
+}
+
+/* Light Mode Overrides for Git Buttons */
+body.light-mode .cta-btn--gitlab {
+  border: 2px solid #fc6d26 !important;
+  color: #fc6d26 !important;
+  background-color: transparent !important;
+  font-weight: 700;
+}
+
+body.light-mode .cta-btn--gitlab i {
+  color: #fc6d26 !important;
+}
+
+body.light-mode .cta-btn--gitlab:hover {
+  background-color: #fc6d26 !important;
+  color: #ffffff !important;
+  border-color: #fc6d26 !important;
+  box-shadow: 0 4px 14px rgba(252, 109, 38, 0.35) !important;
+}
+
+body.light-mode .cta-btn--gitlab:hover i {
+  color: #ffffff !important;
+}
+
+body.light-mode .cta-btn--github {
+  border: 2px solid #24292e !important;
+  color: #24292e !important;
+  background-color: transparent !important;
+  font-weight: 700;
+}
+
+body.light-mode .cta-btn--github i {
+  color: #24292e !important;
+}
+
+body.light-mode .cta-btn--github:hover {
+  background-color: #24292e !important;
+  color: #ffffff !important;
+  border-color: #24292e !important;
+  box-shadow: 0 4px 14px rgba(36, 41, 46, 0.35) !important;
+}
+
+body.light-mode .cta-btn--github:hover i {
+  color: #ffffff !important;
 }

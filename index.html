@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
 
     <!-- Main CSS -->
-    <link rel="stylesheet" href="./css/main.css?v=2" />
+    <link rel="stylesheet" href="./css/main.css?v=3" />
   </head>
   <body>
     <!-- Theme Toggle -->
@@ -38,7 +38,8 @@
             <span style="white-space: nowrap;">Unity Developer.</span>
           </h1>
           <p class="hero-cta">
-            <a class="cta-btn cta-btn--hero" href="#projects">View My Work</a>
+            <a class="cta-btn cta-btn--hero" href="#projects"><i class="fa-solid fa-code"></i> Dev Projects</a>
+            <a class="cta-btn cta-btn--qa-hero" href="#playtest"><i class="fa-solid fa-vial-circle-check"></i> QA & Playtest</a>
             <a class="cta-btn cta-btn--secondary" href="./assets/Pham-Duc-Duong-DevIntern.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i> View CV</a>
             <a class="cta-btn cta-btn--facebook" href="https://www.facebook.com/duongduongjonhnydeep?locale=vi_VN&_rdc=1&_rdr#" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a>
           </p>
@@ -62,6 +63,11 @@
             <h3>Unity Engine</h3>
           </div>
           <div class="skill-card">
+            <i class="fa-solid fa-gamepad"></i>
+            <h3>Cocos Creator / HTML5</h3>
+          </div>
+
+          <div class="skill-card">
             <i class="fa-solid fa-code"></i>
             <h3>C# / OOP</h3>
           </div>
@@ -77,6 +83,10 @@
             <i class="fa-solid fa-microchip"></i>
             <h3>Optimization</h3>
           </div>
+          <div class="skill-card">
+            <i class="fa-solid fa-vial-circle-check"></i>
+            <h3>QA & Playtesting</h3>
+          </div>
         </div>
       </div>
     </section>
@@ -85,7 +95,263 @@
     <section id="projects">
       <div class="container">
         <h2 class="section-title">Game Showcase</h2>
-        <div class="project-wrapper">
+
+        <!-- Showcase Navigation Tabs (Game Dev vs QA & Playtesting) -->
+        <div class="portfolio-tab-nav" role="tablist" aria-label="Game Showcase Categories">
+          <button type="button" class="portfolio-tab-btn active" data-target="dev-projects-tab" role="tab" aria-selected="true" id="tab-btn-dev">
+            <i class="fa-solid fa-code"></i>
+            <span>Dự án Game Dev</span>
+            <span class="tab-badge">5 Sản phẩm</span>
+          </button>
+          <button type="button" class="portfolio-tab-btn" data-target="qa-playtest-tab" role="tab" aria-selected="false" id="tab-btn-qa">
+            <i class="fa-solid fa-vial-circle-check"></i>
+            <span>Kiểm thử & QA</span>
+            <span class="tab-badge">2 Dự án</span>
+          </button>
+        </div>
+
+        <!-- Tab 1: Game Dev Projects -->
+        <div id="dev-projects-tab" class="portfolio-tab-content active" role="tabpanel" aria-labelledby="tab-btn-dev">
+          <div class="project-wrapper">
+
+                    <!-- Project: ADHD SQUAD Playable Ads -->
+          <article class="project-row">
+            <div class="project-info project-wrapper__text">
+              <span class="project-badge">Playable Ads Developer • Cocos Creator • HTML5</span>
+              <h3>ADHD SQUAD: Playable Ads</h3>
+
+              <p class="project-summary">
+                Lập trình các mini-game chơi thử (Playable Ads) trên nền tảng <strong>Cocos Creator</strong> (HTML5/TypeScript) cho chiến dịch Marketing/UA. Toàn bộ đồ họa, âm thanh và engine được tối ưu đóng gói gọn trong <strong>một file HTML duy nhất &lt; 5MB</strong> tương thích mượt mà màn hình dọc &amp; ngang.
+              </p>
+              
+              <!-- Technical Breakdown -->
+              <div class="tech-breakdown">
+                <span class="tech-tag">Cocos Creator</span>
+                <span class="tech-tag">Playable Ads (HTML5)</span>
+                <span class="tech-tag">TypeScript / JS</span>
+                <span class="tech-tag">Bundle &lt;5MB</span>
+              </div>
+
+              <!-- Action buttons & Expand toggle -->
+              <div class="project-btns" style="margin-bottom: 0.5rem;">
+                <button type="button" class="cta-btn cta-btn--projects open-playable-modal" data-variant="survival">
+                  <i class="fa-solid fa-gamepad"></i> Play Playable Ad
+                </button>
+                <button type="button" class="project-expand-btn" data-target="adhd-expandable" data-more-text="Xem chi tiết &amp; 4 biến thể" data-less-text="Rút gọn">
+                  <span class="btn-label">Xem chi tiết &amp; 4 biến thể</span>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+              </div>
+
+              <!-- Expandable details -->
+              <div id="adhd-expandable" class="project-expandable">
+                <div class="role-clarification-banner">
+                  <i class="fa-solid fa-bullhorn"></i>
+                  <span><strong>Phạm vi đảm nhận:</strong> Trực tiếp phát triển các bản <strong>Playable Ads</strong> cho chiến dịch User Acquisition, <em>không phải phát triển game gốc</em>. Game gốc là <strong>Danger Dungeon</strong> phát hành trên Google Play.</span>
+                </div>
+
+                <div class="project-btns" style="margin-bottom: 1.5rem;">
+                  <a href="https://play.google.com/store/apps/details?id=com.skybull.danger.dungeon" target="_blank" class="cta-btn cta-btn--store" title="Xem game gốc Danger Dungeon trên Google Play">
+                    <i class="fa-brands fa-google-play"></i> Game Gốc (Google Play)
+                  </a>
+                </div>
+
+                <div class="playable-variants-quicklist">
+                  <span class="quicklist-title"><i class="fa-solid fa-layer-group"></i> 4 Biến thể Playable Ads đã trực tiếp thực hiện:</span>
+                  <div class="quicklist-badges">
+                    <button type="button" class="variant-pill-btn open-playable-modal" data-variant="survival" title="Chơi biến thể Survival (Warrior)">
+                      <i class="fa-solid fa-shield-halved"></i> Survival (Warrior)
+                    </button>
+                    <button type="button" class="variant-pill-btn open-playable-modal" data-variant="defend" title="Chơi biến thể Defend the Treasure">
+                      <i class="fa-solid fa-fort-awesome"></i> Defend Treasure
+                    </button>
+                    <button type="button" class="variant-pill-btn open-playable-modal" data-variant="spider" title="Chơi biến thể Ranger vs Spider Boss">
+                      <i class="fa-solid fa-spider"></i> Ranger vs Spider
+                    </button>
+                    <button type="button" class="variant-pill-btn open-playable-modal" data-variant="lich" title="Chơi biến thể Ranger vs Lich Boss">
+                      <i class="fa-solid fa-skull"></i> Ranger vs Lich
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Media Carousel (Steam-like) -->
+            <div class="project-media project-wrapper__image steam-carousel">
+              <!-- Main View -->
+              <div class="carousel-main">
+                <div class="loading-spinner"></div>
+                <img src="./assets/playable-ads/ADHD/thumb_survival.jpg" alt="ADHD Playable Ads Gameplay Video" class="main-image active">
+                <video loop muted playsinline controls class="main-video"></video>
+                <iframe class="main-iframe" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen frameborder="0"></iframe>
+                <div class="carousel-overlay-badge">
+                  <i class="fa-solid fa-circle-play"></i> Có bản demo chơi trực tiếp
+                </div>
+              </div>
+              
+              <!-- Thumbnails: 4 Gameplay Videos + 7 Screenshots from Playable Ads recordings -->
+              <div class="carousel-thumbnails">
+                <!-- Video 1: Survival Warrior -->
+                <div class="thumbnail-item active" data-type="video" data-src="./assets/playable-ads/ADHD/Survival.mp4" title="Video Gameplay: Survival (Warrior)">
+                  <img src="./assets/playable-ads/ADHD/thumb_survival.jpg" alt="Survival Warrior Video">
+                  <div class="play-icon-overlay"><i class="fa-solid fa-play"></i></div>
+                </div>
+                <!-- Video 2: Defend Treasure -->
+                <div class="thumbnail-item" data-type="video" data-src="./assets/playable-ads/ADHD/Treasure.mp4" title="Video Gameplay: Defend Treasure">
+                  <img src="./assets/playable-ads/ADHD/thumb_treasure.jpg" alt="Defend Treasure Video">
+                  <div class="play-icon-overlay"><i class="fa-solid fa-play"></i></div>
+                </div>
+                <!-- Video 3: Ranger vs Spider Boss -->
+                <div class="thumbnail-item" data-type="video" data-src="./assets/playable-ads/ADHD/Acher-Spider.mp4" title="Video Gameplay: Ranger vs Spider Boss">
+                  <img src="./assets/playable-ads/ADHD/thumb_archer_spider.jpg" alt="Ranger vs Spider Video">
+                  <div class="play-icon-overlay"><i class="fa-solid fa-play"></i></div>
+                </div>
+                <!-- Video 4: Ranger vs Lich Boss -->
+                <div class="thumbnail-item" data-type="video" data-src="./assets/playable-ads/ADHD/Acher-Lich.mp4" title="Video Gameplay: Ranger vs Lich Boss">
+                  <img src="./assets/playable-ads/ADHD/thumb_archer_lich.jpg" alt="Ranger vs Lich Video">
+                  <div class="play-icon-overlay"><i class="fa-solid fa-play"></i></div>
+                </div>
+                <!-- Screenshots recorded from Playable Ads -->
+                <div class="thumbnail-item" data-type="image" data-src="./assets/playable-ads/ADHD/adhd_screen_1.png" title="Ảnh chụp màn hình Playable Ad 1">
+                  <img src="./assets/playable-ads/ADHD/adhd_screen_1.png" alt="Playable Ad Gameplay 1">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/playable-ads/ADHD/adhd_screen_2.png" title="Ảnh chụp màn hình Playable Ad 2">
+                  <img src="./assets/playable-ads/ADHD/adhd_screen_2.png" alt="Playable Ad Gameplay 2">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/playable-ads/ADHD/adhd_screen_3.png" title="Ảnh chụp màn hình Playable Ad 3">
+                  <img src="./assets/playable-ads/ADHD/adhd_screen_3.png" alt="Playable Ad Gameplay 3">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/playable-ads/ADHD/adhd_screen_4.png" title="Ảnh chụp màn hình Playable Ad 4">
+                  <img src="./assets/playable-ads/ADHD/adhd_screen_4.png" alt="Playable Ad Gameplay 4">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/playable-ads/ADHD/adhd_screen_5.png" title="Ảnh chụp màn hình Playable Ad 5">
+                  <img src="./assets/playable-ads/ADHD/adhd_screen_5.png" alt="Playable Ad Gameplay 5">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/playable-ads/ADHD/adhd_screen_6.png" title="Ảnh chụp màn hình Playable Ad 6">
+                  <img src="./assets/playable-ads/ADHD/adhd_screen_6.png" alt="Playable Ad Gameplay 6">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/playable-ads/ADHD/adhd_screen_7.png" title="Ảnh chụp màn hình Playable Ad 7">
+                  <img src="./assets/playable-ads/ADHD/adhd_screen_7.png" alt="Playable Ad Gameplay 7">
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project: Space Hole - Black Hole Games -->
+          <article class="project-row" style="direction: rtl;">
+            <div class="project-info project-wrapper__text" style="direction: ltr;">
+              <div class="project-header-row">
+                <img src="./assets/projects/spacehole_icon.png" alt="Space Hole App Icon" class="project-app-icon">
+                <div class="project-header-text">
+                  <span class="project-badge"><i class="fa-solid fa-puzzle-piece"></i> Feature Developer • Unity / C#</span>
+                  <h3 style="margin-bottom: 0.2rem;">Space Hole - Black Hole Games</h3>
+                  <div class="project-role-note">
+                    <i class="fa-solid fa-building"></i> Game gốc của <strong>SKYBULL</strong> • Đảm nhận: <strong>Lập trình 2 tính năng</strong>
+                  </div>
+                </div>
+              </div>
+              <p class="project-summary">
+                Game mobile arcade không gian của studio <strong>SKYBULL</strong> (10.000+ lượt tải). Em tham gia với vai trò <strong>Feature Developer</strong>, trực tiếp lập trình 2 tính năng trọng tâm: <strong>Bộ sưu tập thiên thể</strong> và <strong>Cơ chế hồi sinh tại chỗ</strong>, tối ưu hóa Physics đạt 60 FPS mượt mà.
+              </p>
+
+              <!-- Technical Breakdown -->
+              <div class="tech-breakdown">
+                <span class="tech-tag" style="border-color: rgba(0, 210, 255, 0.4); color: var(--accent-secondary);"><i class="fa-solid fa-code-commit"></i> Feature Contributor</span>
+                <span class="tech-tag">Unity Engine</span>
+                <span class="tech-tag">C# / OOP</span>
+                <span class="tech-tag">Gameplay Modules</span>
+                <span class="tech-tag">Physics 60 FPS</span>
+              </div>
+
+              <!-- Action buttons & Expand toggle -->
+              <div class="project-btns" style="margin-bottom: 0.5rem;">
+                <a href="https://play.google.com/store/apps/details?id=com.Skybull.Cosmit&hl=en-US&ah=QHB_4spm9hBpLxW38S9J1Wt7EJk" target="_blank" class="cta-btn cta-btn--store" title="Xem game gốc trên Google Play">
+                  <i class="fa-brands fa-google-play"></i> Google Play
+                </a>
+                <a href="https://apps.apple.com/us/app/space-hole-black-hole-games/id6736383515" target="_blank" class="cta-btn cta-btn--store-apple" title="Xem game gốc trên App Store">
+                  <i class="fa-brands fa-app-store-ios"></i> App Store
+                </a>
+                <button type="button" class="project-expand-btn" data-target="spacehole-expandable" data-more-text="Xem chi tiết 2 tính năng" data-less-text="Rút gọn">
+                  <span class="btn-label">Xem chi tiết 2 tính năng</span>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+              </div>
+
+              <!-- Expandable details -->
+              <div id="spacehole-expandable" class="project-expandable">
+                <div class="role-clarification-banner">
+                  <i class="fa-solid fa-circle-info"></i>
+                  <span><strong>Làm rõ phạm vi đảm nhận:</strong> Game gốc do Studio <strong>SKYBULL</strong> phát triển và phát hành. Em tham gia lập trình 2 tính năng mở rộng bên dưới:</span>
+                </div>
+
+                <div class="feature-contributions" style="margin: 0.5rem 0 1.2rem 0;">
+                  <div class="feature-item">
+                    <div class="feature-item-header">
+                      <div class="feature-title-group">
+                        <i class="fa-solid fa-meteor"></i>
+                        <span>Hệ thống Bộ sưu tập Thiên thể (Cosmic Collection)</span>
+                      </div>
+                    </div>
+                    <p>
+                      Xây dựng tính năng phân loại và mở khóa các thiên thể (Hành tinh, Ngôi sao, Vũ trụ) theo đánh giá sao, đồng bộ tiến trình khám phá và cơ chế trả thưởng tiền tệ trên giao diện.
+                    </p>
+                  </div>
+
+                  <div class="feature-item">
+                    <div class="feature-item-header">
+                      <div class="feature-title-group">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                        <span>Cơ chế Hồi sinh tại chỗ (Second Chance)</span>
+                      </div>
+                    </div>
+                    <p>
+                      Lập trình cơ chế 2 mạng: cho phép tàu hồi sinh tức thì ngay tại điểm va chạm kèm khiên bất tử tạm thời, bảo toàn vệ tinh bay quanh và giữ liền mạch nhịp độ trận đấu.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="project-btns">
+                  <a href="https://www.youtube.com/watch?v=D1WJQQkyQ9M" target="_blank" class="cta-btn cta-btn--youtube">
+                    <i class="fa-brands fa-youtube"></i> Xem Gameplay
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Media Carousel (Steam-like) -->
+            <div class="project-media project-wrapper__image steam-carousel" style="direction: ltr;">
+              <!-- Main View -->
+              <div class="carousel-main">
+                <div class="loading-spinner"></div>
+                <img src="./assets/projects/spacehole_screen_1.jpg" alt="Space Hole - Black Hole Games Screenshot" class="main-image active">
+                <video loop muted playsinline controls class="main-video"></video>
+                <iframe class="main-iframe" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen frameborder="0"></iframe>
+                <div class="carousel-overlay-badge">
+                  <i class="fa-solid fa-gamepad"></i> 10K+ Downloads • Google Play
+                </div>
+              </div>
+              
+              <!-- Thumbnails -->
+              <div class="carousel-thumbnails">
+                <div class="thumbnail-item active" data-type="image" data-src="./assets/projects/spacehole_screen_1.jpg" title="Tiến hóa &amp; Nâng cấp: Level 100 vs Level 1000">
+                  <img src="./assets/projects/spacehole_screen_1.jpg" alt="Level 100 vs Level 1000">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/projects/spacehole_screen_2.jpg" title="Hành tinh sự sống (Life Planet)">
+                  <img src="./assets/projects/spacehole_screen_2.jpg" alt="Life Planet">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/projects/spacehole_screen_3.jpg" title="Sao neutron (Neutron Star)">
+                  <img src="./assets/projects/spacehole_screen_3.jpg" alt="Neutron Star">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/projects/spacehole_screen_4.jpg" title="Hố đen vũ trụ (Black Hole)">
+                  <img src="./assets/projects/spacehole_screen_4.jpg" alt="Black Hole">
+                </div>
+                <div class="thumbnail-item" data-type="youtube" data-src="https://www.youtube.com/embed/D1WJQQkyQ9M" title="Video Gameplay trên iOS/Android">
+                  <img src="./assets/projects/spacehole_video_thumb.jpg" alt="Space Hole Gameplay Video">
+                  <div class="play-icon-overlay"><i class="fa-brands fa-youtube"></i></div>
+                </div>
+              </div>
+            </div>
+          </article>
 
           <!-- Project 3: VietVRDefense -->
           <article class="project-row">
@@ -101,7 +367,7 @@
               </div>
 
               <div class="project-btns">
-                <a class="cta-btn cta-btn--projects" href="https://gitlab.com/duongduongnavy-group/vr-datn-game.git" target="_blank">
+                <a class="cta-btn cta-btn--gitlab" href="https://gitlab.com/duongduongnavy-group/vr-datn-game.git" target="_blank">
                   <i class="fa-brands fa-gitlab"></i> Source Code
                 </a>
               </div>
@@ -142,7 +408,7 @@
 
           <!-- Project 1: FarmPuzzle -->
           <article class="project-row" style="direction: rtl;">
-            <div class="project-info project-wrapper__text">
+            <div class="project-info project-wrapper__text" style="direction: ltr;">
               <h3>FarmPuzzle</h3>
               <p>
                 Game mobile thể loại Hybrid-casual (Farm Simulation kết hợp Block Puzzle). Xây dựng Core Data Layer (SQLite & RAM Cache) giúp tối ưu tốc độ truy xuất dữ liệu và phát triển Custom Editor Tools (Database Viewer, AutoSetup) để tự động hóa quy trình thiết lập data cho team gồm 6 thành viên.
@@ -159,14 +425,14 @@
 
               <div class="project-btns">
                 <!-- <a href="#" target="_blank" class="cta-btn cta-btn--projects"><i class="fa-solid fa-play"></i> Play in Browser</a> -->
-                <a href="https://github.com/Duong4921/farmpuzzle" target="_blank" class="cta-btn cta-btn--secondary">
+                <a href="https://github.com/Duong4921/farmpuzzle" target="_blank" class="cta-btn cta-btn--github">
                   <i class="fa-brands fa-github"></i> Source Code
                 </a>
               </div>
             </div>
 
             <!-- Media Carousel (Steam-like) - Dành riêng cho màn hình dọc -->
-            <div class="project-media project-wrapper__image steam-carousel carousel-vertical">
+            <div class="project-media project-wrapper__image steam-carousel carousel-vertical" style="direction: ltr;">
               <!-- Main View -->
               <div class="carousel-main">
                 <div class="loading-spinner"></div>
@@ -211,7 +477,7 @@
 
               <div class="project-btns">
                 <!-- <a href="#" target="_blank" class="cta-btn cta-btn--projects"><i class="fa-solid fa-download"></i> Download PC Build</a> -->
-                <a href="https://github.com/Duong4921/treasurediver" target="_blank" class="cta-btn cta-btn--secondary">
+                <a href="https://github.com/Duong4921/treasurediver" target="_blank" class="cta-btn cta-btn--github">
                   <i class="fa-brands fa-github"></i> Source Code
                 </a>
               </div>
@@ -257,10 +523,176 @@
             </div>
           </article>
 
-        </div>
+          </div> <!-- End project-wrapper -->
+        </div> <!-- End dev-projects-tab -->
+
+        <!-- Tab 2: QA & Playtesting -->
+        <div id="qa-playtest-tab" class="portfolio-tab-content" role="tabpanel" aria-labelledby="tab-btn-qa">
+          <div id="playtest" style="position: relative; top: -80px;"></div>
+          <p class="section-subtitle" style="margin-bottom: 3.5rem;">
+            Kinh nghiệm kiểm thử thực tế và phân tích chuyên sâu: Kiểm thử tính năng nội bộ (Internal Feature QA) với Cheat/Debug Tools đến nghiên cứu tâm lý mua sắm, bóc tách Paywall & Monetization trên thị trường game mobile quốc tế.
+          </p>
+
+          <div class="qa-grid">
+
+            <!-- QA Project 1: Monetization & Paywall Analysis -->
+            <article class="qa-card monetization">
+              <div class="qa-card-header">
+                <div class="qa-badge-row">
+                  <span class="qa-badge monetization"><i class="fa-solid fa-chart-line"></i> Monetization & Paywall</span>
+                  <span class="qa-target-platform"><i class="fa-solid fa-globe"></i> Mobile F2P (Global Store)</span>
+                </div>
+                <h3 class="qa-card-title">Playtest 14 Ngày: Offer & Paywall Analysis</h3>
+                <p class="qa-card-desc">
+                  Dự án nghiên cứu & phân tích chuyên sâu hệ thống kinh tế trong game (Game Economy & Monetization) dành cho người chơi F2P. Đóng vai người chơi thuần miễn phí, trải nghiệm 1 tiếng mỗi ngày liên tục trong 14 ngày trên store quốc tế.
+                </p>
+
+                <ul class="qa-highlights">
+                  <li class="qa-highlight-item">
+                    <i class="fa-solid fa-circle-check item-icon"></i>
+                    <div><strong>Đóng vai Free User:</strong> Trải nghiệm thực tế hành trình tân thủ (FTUE) và đo lường độ khó lũy tiến mà không nạp tiền.</div>
+                  </li>
+                  <li class="qa-highlight-item">
+                    <i class="fa-solid fa-circle-check item-icon"></i>
+                    <div><strong>Bóc tách Paywall:</strong> Xác định chính xác các điểm nghẽn tài nguyên và độ khó nhảy vọt buộc người chơi phải nạp tiền để vượt qua.</div>
+                  </li>
+                  <li class="qa-highlight-item">
+                    <i class="fa-solid fa-circle-check item-icon"></i>
+                    <div><strong>Phân tích Tâm lý Ưu đãi:</strong> Giải mã cơ chế kích hoạt các gói Popup Offers, Flash Sales, Starter Packs và các đòn bẩy tâm lý (FOMO, mỏ neo giá).</div>
+                  </li>
+                  <li class="qa-highlight-item">
+                    <i class="fa-solid fa-circle-check item-icon"></i>
+                    <div><strong>Tài liệu hóa dữ liệu:</strong> Chụp kho dữ liệu ảnh Shop/Offers lưu trữ Google Drive, cập nhật báo cáo hàng ngày vào bảng tính Google Sheets gồm 3 tab chuyên biệt.</div>
+                  </li>
+                </ul>
+
+                <div class="tech-breakdown">
+                  <span class="tech-tag">Monetization Analysis</span>
+                  <span class="tech-tag">Paywall Mapping</span>
+                  <span class="tech-tag">Free-to-Play (F2P)</span>
+                  <span class="tech-tag">In-App Purchases</span>
+                  <span class="tech-tag">Google Sheets Log</span>
+                </div>
+              </div>
+
+            </article>
+
+            <!-- QA Project 2: Danger Dungeon Feature QA -->
+            <article class="qa-card feature">
+              <div class="qa-card-header">
+                <div class="qa-badge-row">
+                  <span class="qa-badge feature"><i class="fa-solid fa-bug"></i> Feature & Functional QA</span>
+                  <span class="qa-target-platform"><i class="fa-brands fa-android"></i> Android Test Build (APK)</span>
+                </div>
+                <h3 class="qa-card-title">Danger Dungeon: New Year & Season Pass QA</h3>
+                <p class="qa-card-desc">
+                  Kiểm thử các tính năng mới trên bản build thử nghiệm nội bộ trước khi release: Hệ thống nhiệm vụ mùa giải (Season Pass), Sự kiện năm mới (New Year Event), cơ chế Biến hình nhân vật và luồng thanh toán Sandbox.
+                </p>
+
+                <ul class="qa-highlights">
+                  <li class="qa-highlight-item">
+                    <i class="fa-solid fa-circle-check item-icon"></i>
+                    <div><strong>Kiểm soát môi trường qua Cheat Panel:</strong> Thực hiện Clear Local Data & Cloud Save, reset tiến trình, kích hoạt kill counter (100 kills) để mở khóa hệ thống Quest.</div>
+                  </li>
+                  <li class="qa-highlight-item">
+                    <i class="fa-solid fa-circle-check item-icon"></i>
+                    <div><strong>Kiểm thử Season Pass (Ch 1-6):</strong> Kiểm tra độ cân bằng nhiệm vụ và luồng thưởng từ Season 1 đến Season 3 theo chu kỳ 7 form báo cáo hàng ngày.</div>
+                  </li>
+                  <li class="qa-highlight-item">
+                    <i class="fa-solid fa-circle-check item-icon"></i>
+                    <div><strong>Character Transform & New Year:</strong> Đánh giá cơ chế biến thân trong giao tranh và tính ổn định của các nội dung sự kiện Tết.</div>
+                  </li>
+                  <li class="qa-highlight-item">
+                    <i class="fa-solid fa-circle-check item-icon"></i>
+                    <div><strong>Xác minh Luồng IAP & Phối hợp Dev:</strong> Nhập mã test code (10ku) mua thử nghiệm gói VIP và No-Ads qua cổng Aghanim; phối hợp cùng Lead GD và Tech Lead tái hiện và xác nhận lỗi kết nối mạng.</div>
+                  </li>
+                </ul>
+
+                <div class="tech-breakdown">
+                  <span class="tech-tag">Feature Testing</span>
+                  <span class="tech-tag">Cheat / Debug Panel</span>
+                  <span class="tech-tag">Season Pass Progression</span>
+                  <span class="tech-tag">IAP Flow Verification</span>
+                  <span class="tech-tag">Google Forms Log</span>
+                </div>
+              </div>
+
+            </article>
+
+          </div>
+        </div> <!-- End qa-playtest-tab -->
+
       </div>
     </section>
 
+
+    <!-- Playable Ads Demo Modal -->
+    <div id="playable-modal" class="playable-modal-backdrop" aria-hidden="true" role="dialog">
+      <div class="playable-modal-container">
+        <!-- Modal Header -->
+        <div class="playable-modal-header">
+          <div class="modal-title-area">
+            <span class="modal-live-tag"><span class="pulse-dot"></span> LIVE DEMO</span>
+            <h3 class="modal-title" id="modal-game-title">ADHD SQUAD: Playable Ads Demo (Cocos Creator HTML5)</h3>
+          </div>
+          <div class="modal-actions">
+            <!-- Viewport toggle -->
+            <button id="modal-toggle-viewport" class="modal-btn" title="Chuyển chế độ Mobile (9:16) / Màn hình rộng (16:9)">
+              <i class="fa-solid fa-mobile-screen"></i>
+              <span class="btn-text">Mobile View</span>
+            </button>
+            <!-- Open in new tab -->
+            <a id="modal-newtab-link" href="./assets/playable-ads/adhd_survival_warrior.html" target="_blank" class="modal-btn" title="Mở toàn màn hình trong tab mới">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <span class="btn-text">Mở tab mới</span>
+            </a>
+            <!-- Close button -->
+            <button id="modal-close-btn" class="modal-btn modal-btn--close" aria-label="Close modal" title="Đóng (ESC)">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Variant Tabs Bar -->
+        <div class="playable-variant-tabs">
+          <button class="variant-tab-btn active" data-variant="survival" data-src="./assets/playable-ads/adhd_survival_warrior.html">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Survival (Warrior)</span>
+          </button>
+          <button class="variant-tab-btn" data-variant="defend" data-src="./assets/playable-ads/adhd_defend_treasure.html">
+            <i class="fa-solid fa-fort-awesome"></i>
+            <span>Defend Treasure</span>
+          </button>
+          <button class="variant-tab-btn" data-variant="spider" data-src="./assets/playable-ads/adhd_ranger_spider.html">
+            <i class="fa-solid fa-spider"></i>
+            <span>Ranger vs Spider</span>
+          </button>
+          <button class="variant-tab-btn" data-variant="lich" data-src="./assets/playable-ads/adhd_ranger_lich.html">
+            <i class="fa-solid fa-skull"></i>
+            <span>Ranger vs Lich</span>
+          </button>
+        </div>
+
+        <!-- Modal Body / Iframe Viewport -->
+        <div class="playable-modal-body">
+          <div id="game-frame-wrapper" class="game-frame-wrapper viewport-mobile">
+            <div id="game-iframe-loader" class="game-loader">
+              <div class="game-loader-spinner"></div>
+              <span>Đang tải Cocos Creator Engine...</span>
+            </div>
+            <iframe id="playable-game-iframe" src="" allow="autoplay; fullscreen" frameborder="0"></iframe>
+          </div>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="playable-modal-footer">
+          <div class="modal-hint">
+            <i class="fa-solid fa-lightbulb"></i>
+            <span><strong>Hướng dẫn:</strong> Kéo giữ chuột/chạm và vuốt để điều khiển nhân vật né đòn & tấn công. Bấm các tab phía trên để đổi sang biến thể khác!</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
     <!-- Footer -->
