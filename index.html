@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
 
     <!-- Main CSS -->
-    <link rel="stylesheet" href="./css/main.css?v=3" />
+    <link rel="stylesheet" href="./css/main.css?v=4" />
   </head>
   <body>
     <!-- Theme Toggle -->
@@ -356,14 +356,21 @@
           <!-- Project 3: VietVRDefense -->
           <article class="project-row">
             <div class="project-info project-wrapper__text">
-              <h3>Trấn Yêu Việt Sử (Prototype)</h3>
+              <h3>Trấn Yêu Việt Sử</h3>
               <p>
-                Một tựa game Tower Defense trải nghiệm trên kính thực tế ảo (VR) mang đậm bản sắc văn hóa Việt Nam (bản đồ Rằm Tháng 7, Vu Lan; nhân vật Sơn Tinh, Hưng Đạo Đại Vương, Mẫu Liễu Hạnh...). Trò chơi tích hợp cơ chế tương tác VR tiên tiến như nhận diện hành động vung tay (Attack Motion), hệ thống thẻ bài (Card System).
+                Game Tower Defense thực tế ảo (VR) mang đậm văn hóa Việt Nam, làm bằng <strong>Unity 6 (URP)</strong> cho Meta Quest 2/3/3S và hỗ trợ PCVR qua SteamVR. Gồm <strong>4 màn</strong> theo lễ hội (Vu Lan, Tết Nguyên Đán, Trung Thu, Rằm Tháng Bảy), <strong>5 loại tháp</strong> (Quân Linh, Mẫu Liễu Hạnh, Sơn Tinh, Chử Đồng Tử, Hưng Đạo Đại Vương), <strong>5 loại quái</strong> và <strong>4 Boss</strong> có cơ chế riêng.
+              </p>
+              <p>
+                Người chơi điều khiển bằng <strong>hand tracking</strong>: <strong>7 binh khí</strong> kích hoạt bằng cử chỉ tay (vung roi tre, vỗ trống đồng, kiếm quyết, chụm ngón), nhận diện qua vận tốc tay và độ cong khớp ngón. Trước mỗi wave, người chơi chọn 1 trong 3 <strong>thẻ buff/debuff</strong> ngẫu nhiên (từ 8 thẻ) để định hình chiến thuật.
               </p>
               
               <!-- Technical Breakdown -->
               <div class="tech-breakdown">
                 <span class="tech-tag">Meta XR / OpenXR</span>
+                <span class="tech-tag">Hand Tracking</span>
+                <span class="tech-tag">ScriptableObject Data-driven</span>
+                <span class="tech-tag">Object Pooling</span>
+                <span class="tech-tag">Supabase</span>
               </div>
 
               <div class="project-btns">
@@ -378,13 +385,32 @@
               <!-- Main View -->
               <div class="carousel-main">
                 <div class="loading-spinner"></div>
-                <img src="./assets/ProjectVR/imgVR2.jpg" alt="VietVRDefense Main View" class="main-image active">
+                <img src="./assets/ProjectVR/imgVR6.jpg" alt="VietVRDefense Main View" class="main-image active">
                 <video loop muted playsinline controls class="main-video"></video>
               </div>
               
               <!-- Thumbnails -->
               <div class="carousel-thumbnails">
-                <div class="thumbnail-item active" data-type="image" data-src="./assets/ProjectVR/imgVR2.jpg">
+                <div class="thumbnail-item active" data-type="image" data-src="./assets/ProjectVR/imgVR6.jpg" title="Chiến đấu với Boss">
+                  <img src="./assets/ProjectVR/imgVR6.jpg" alt="Boss Fight">
+                </div>
+                <div class="thumbnail-item" data-type="video" data-src="./assets/ProjectVR/FullGameplay.mp4" title="Full Gameplay (bản mới nhất)">
+                  <img src="./assets/ProjectVR/imgVR8.jpg" alt="Full Gameplay Video">
+                  <div class="play-icon-overlay"><i class="fa-solid fa-play"></i></div>
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/ProjectVR/imgVR7.jpg" title="Hệ thống thẻ bài Debuff">
+                  <img src="./assets/ProjectVR/imgVR7.jpg" alt="Card System">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/ProjectVR/imgVR9.jpg" title="Menu chính">
+                  <img src="./assets/ProjectVR/imgVR9.jpg" alt="Main Menu">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/ProjectVR/imgVR10.jpg" title="Đường đi caro">
+                  <img src="./assets/ProjectVR/imgVR10.jpg" alt="Lane">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/ProjectVR/imgVR8.jpg" title="Bản đồ Rằm Tháng 7">
+                  <img src="./assets/ProjectVR/imgVR8.jpg" alt="Map Ram Thang 7">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/ProjectVR/imgVR2.jpg">
                   <img src="./assets/ProjectVR/imgVR2.jpg" alt="Image 1">
                 </div>
                 <div class="thumbnail-item" data-type="image" data-src="./assets/ProjectVR/imgVR3.jpg">
@@ -703,8 +729,7 @@
         </div>
         <hr />
         <p class="footer__text">
-          &copy; <span id="year"></span> - Built for Game Development. <br />
-          Forked from DevFolio Template.
+          &copy; <span id="year"></span> - Phạm Đức Dương
         </p>
       </div>
     </footer>
@@ -720,5 +745,6 @@
     
     <!-- Custom Theme Logic -->
     <script src="./javascript/main.js"></script>
+    <script src="./javascript/motion.js"></script>
   </body>
 </html>
