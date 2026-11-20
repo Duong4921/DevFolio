@@ -537,15 +537,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Hero CTA: di qua he thong slide (motion.js) de ha canh dung slide; fallback la cuon thang
+    function goToProjects() {
+        setTimeout(() => {
+            if (window.SlideNav && window.SlideNav.goToProjects()) return;
+            const targetEl = document.getElementById('projects');
+            if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+    }
+
     // Support Hero buttons & hash navigation
     document.querySelectorAll('a[href="#playtest"]').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             switchPortfolioTab('qa-playtest-tab');
-            const targetEl = document.getElementById('projects');
-            if (targetEl) {
-                targetEl.scrollIntoView({ behavior: 'smooth' });
-            }
+            goToProjects();
         });
     });
 
@@ -553,10 +559,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             switchPortfolioTab('dev-projects-tab');
-            const targetEl = document.getElementById('projects');
-            if (targetEl) {
-                targetEl.scrollIntoView({ behavior: 'smooth' });
-            }
+            goToProjects();
         });
     });
 

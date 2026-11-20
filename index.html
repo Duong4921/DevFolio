@@ -19,8 +19,12 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="./css/main.css?v=4" />
+      <script>document.documentElement.classList.add("js");</script>
   </head>
   <body>
+    <!-- Intro curtain -->
+    <div id="intro-curtain" aria-hidden="true"><span class="ic-name">Phạm Đức Dương</span><span class="ic-line"></span><span class="ic-sub">Unity Developer</span></div>
+
     <!-- Theme Toggle -->
     <div class="theme-toggle-wrapper">
       <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode">
@@ -101,7 +105,7 @@
           <button type="button" class="portfolio-tab-btn active" data-target="dev-projects-tab" role="tab" aria-selected="true" id="tab-btn-dev">
             <i class="fa-solid fa-code"></i>
             <span>Dự án Game Dev</span>
-            <span class="tab-badge">5 Sản phẩm</span>
+            <span class="tab-badge">6 Sản phẩm</span>
           </button>
           <button type="button" class="portfolio-tab-btn" data-target="qa-playtest-tab" role="tab" aria-selected="false" id="tab-btn-qa">
             <i class="fa-solid fa-vial-circle-check"></i>
@@ -116,7 +120,7 @@
 
                     <!-- Project: ADHD SQUAD Playable Ads -->
           <article class="project-row">
-            <div class="project-info project-wrapper__text">
+            <div class="project-info project-wrapper__text" style="direction: ltr;">
               <span class="project-badge">Playable Ads Developer • Cocos Creator • HTML5</span>
               <h3>ADHD SQUAD: Playable Ads</h3>
 
@@ -177,7 +181,7 @@
             </div>
 
             <!-- Media Carousel (Steam-like) -->
-            <div class="project-media project-wrapper__image steam-carousel">
+            <div class="project-media project-wrapper__image steam-carousel" style="direction: ltr;">
               <!-- Main View -->
               <div class="carousel-main">
                 <div class="loading-spinner"></div>
@@ -237,8 +241,137 @@
             </div>
           </article>
 
-          <!-- Project: Space Hole - Black Hole Games -->
+          <!-- Project: Eternal King Offline -->
           <article class="project-row" style="direction: rtl;">
+            <div class="project-info project-wrapper__text" style="direction: ltr;">
+              <span class="project-badge"><i class="fa-solid fa-crown"></i> Gameplay / Client Integration • Unity / C#</span>
+              <h3>Eternal King Offline</h3>
+              <p class="project-summary">
+                Biến game chiến thuật – triều đại trên mobile (Unity client + ASP.NET backend) vốn chỉ chơi online thành <strong>bản offline chơi một mình</strong>. Xây <strong>router API cục bộ</strong> thay server, <strong>port engine chiến đấu</strong> (78 file, ~4.300 dòng) sang Unity C#, và làm cho mọi chế độ chơi chạy bằng save JSON local.
+              </p>
+
+              <div class="tech-breakdown">
+                <span class="tech-tag">Unity 6 (URP)</span>
+                <span class="tech-tag">C#</span>
+                <span class="tech-tag">Local API Router</span>
+                <span class="tech-tag">Battle Engine Port</span>
+                <span class="tech-tag">Newtonsoft.Json</span>
+                <span class="tech-tag">Unity CLI Automation</span>
+              </div>
+
+              <div class="project-btns" style="margin-bottom: 0.5rem;">
+                <a href="https://play.google.com/store/apps/details?id=com.skybull.ek&amp;hl=vi" target="_blank" class="cta-btn cta-btn--store" title="Xem game gốc trên Google Play">
+                  <i class="fa-brands fa-google-play"></i> Game Gốc (Google Play)
+                </a>
+                <a href="https://www.youtube.com/watch?v=CSsLVHGE8XY" target="_blank" class="cta-btn cta-btn--youtube" title="Xem gameplay trên YouTube">
+                  <i class="fa-brands fa-youtube"></i> Xem Gameplay
+                </a>
+                <button type="button" class="project-expand-btn" data-target="ek-expandable" data-more-text="Xem chi tiết đảm nhận" data-less-text="Rút gọn">
+                  <span class="btn-label">Xem chi tiết đảm nhận</span>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+              </div>
+
+              <div id="ek-expandable" class="project-expandable">
+                <div class="role-clarification-banner">
+                  <i class="fa-solid fa-circle-info"></i>
+                  <span><strong>Phạm vi đảm nhận:</strong> Nhóm 2 người. Phụ trách <strong>lập trình gameplay &amp; tích hợp client</strong> (router API, engine chiến đấu, các chế độ chơi). Người còn lại làm tầng dữ liệu (phòng, nhân vật, tiền tệ, nhiệm vụ, cửa hàng).</span>
+                </div>
+
+                <div class="feature-contributions" style="margin: 0.5rem 0 1.2rem 0;">
+                  <div class="feature-item">
+                    <div class="feature-item-header">
+                      <div class="feature-title-group">
+                        <i class="fa-solid fa-route"></i>
+                        <span>Local API Router &amp; đăng nhập offline</span>
+                      </div>
+                    </div>
+                    <p>Chặn mọi HTTP call của client và trả lời ngay trong process với đúng JSON envelope của server cũ. Thay đăng nhập online bằng đăng nhập offline một chạm, không phụ thuộc Firebase/Telegram.</p>
+                  </div>
+
+                  <div class="feature-item">
+                    <div class="feature-item-header">
+                      <div class="feature-title-group">
+                        <i class="fa-solid fa-khanda"></i>
+                        <span>Port engine chiến đấu &amp; bot AI</span>
+                      </div>
+                    </div>
+                    <p>Port 78 file mô phỏng chiến đấu của server sang Unity C# (seeded RNG, skill, effect) và xây bot factory tạo đối thủ AI cân bằng.</p>
+                  </div>
+
+                  <div class="feature-item">
+                    <div class="feature-item-header">
+                      <div class="feature-title-group">
+                        <i class="fa-solid fa-trophy"></i>
+                        <span>Các chế độ chơi &amp; kinh tế offline</span>
+                      </div>
+                    </div>
+                    <p>Journey (sự kiện, boss, auto-attack, phần thưởng), Trial &amp; King Trial (tháp, quét tầng, bảng xếp hạng với 60 đối thủ AI), xếp hạng mùa giải kiểu Elo, cùng Gacha, chợ đen, minigame, nhiệm vụ, sự kiện 7 ngày, nâng skill.</p>
+                  </div>
+
+                  <div class="feature-item">
+                    <div class="feature-item-header">
+                      <div class="feature-title-group">
+                        <i class="fa-solid fa-bug"></i>
+                        <span>Công cụ &amp; sửa lỗi khi chơi thật</span>
+                      </div>
+                    </div>
+                    <p>Bảng cheat trong game, smoke test trong Editor và tự động chơi bằng click chuột giả lập từ tài khoản trắng. Phát hiện và sửa các lỗi như tab bị khóa vĩnh viễn, Auto-journey lỗi JSON (<code>64800.0</code> vs <code>64800</code>), tutorial kẹt; dọn console từ 22 lỗi về 0.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-media project-wrapper__image steam-carousel carousel-vertical carousel-tall" style="direction: ltr;">
+              <div class="carousel-main">
+                <div class="loading-spinner"></div>
+                <img src="./assets/projects/ek_01.jpg" alt="Eternal King Offline Main View" class="main-image active">
+                <video loop muted playsinline controls class="main-video"></video>
+              </div>
+
+              <div class="carousel-thumbnails">
+                <div class="thumbnail-item active" data-type="image" data-src="./assets/projects/ek_01.jpg" title="Journey: màn hình chính">
+                  <img src="./assets/projects/ek_01.jpg" alt="Journey: màn hình chính">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/projects/ek_02.jpg" title="Trận chiến (Battle)">
+                  <img src="./assets/projects/ek_02.jpg" alt="Trận chiến (Battle)">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/projects/ek_03.jpg" title="Sự kiện Journey">
+                  <img src="./assets/projects/ek_03.jpg" alt="Sự kiện Journey">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/projects/ek_04.jpg" title="Chiến thắng &amp; phần thưởng">
+                  <img src="./assets/projects/ek_04.jpg" alt="Chiến thắng &amp; phần thưởng">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/projects/ek_05.jpg" title="Phần thưởng offline">
+                  <img src="./assets/projects/ek_05.jpg" alt="Phần thưởng offline">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/projects/ek_06.jpg" title="Mở khóa danh hiệu">
+                  <img src="./assets/projects/ek_06.jpg" alt="Mở khóa danh hiệu">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/projects/ek_07.jpg" title="Lâu đài (Castle)">
+                  <img src="./assets/projects/ek_07.jpg" alt="Lâu đài (Castle)">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/projects/ek_08.jpg" title="Lãnh thổ (Lands)">
+                  <img src="./assets/projects/ek_08.jpg" alt="Lãnh thổ (Lands)">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/projects/ek_09.jpg" title="Cửa hàng: nhân vật">
+                  <img src="./assets/projects/ek_09.jpg" alt="Cửa hàng: nhân vật">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/projects/ek_10.jpg" title="Cửa hàng: rương Gacha">
+                  <img src="./assets/projects/ek_10.jpg" alt="Cửa hàng: rương Gacha">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/projects/ek_11.jpg" title="Chợ đen">
+                  <img src="./assets/projects/ek_11.jpg" alt="Chợ đen">
+                </div>
+                <div class="thumbnail-item" data-type="image" data-src="./assets/projects/ek_12.jpg" title="Trial: tháp thử thách">
+                  <img src="./assets/projects/ek_12.jpg" alt="Trial: tháp thử thách">
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project: Space Hole - Black Hole Games -->
+          <article class="project-row">
             <div class="project-info project-wrapper__text" style="direction: ltr;">
               <div class="project-header-row">
                 <img src="./assets/projects/spacehole_icon.png" alt="Space Hole App Icon" class="project-app-icon">
@@ -354,16 +487,14 @@
           </article>
 
           <!-- Project 3: VietVRDefense -->
-          <article class="project-row">
-            <div class="project-info project-wrapper__text">
+          <article class="project-row" style="direction: rtl;">
+            <div class="project-info project-wrapper__text" style="direction: ltr;">
+              <span class="project-badge"><i class="fa-solid fa-vr-cardboard"></i> VR Tower Defense • Unity / C#</span>
               <h3>Trấn Yêu Việt Sử</h3>
-              <p>
-                Game Tower Defense thực tế ảo (VR) mang đậm văn hóa Việt Nam, làm bằng <strong>Unity 6 (URP)</strong> cho Meta Quest 2/3/3S và hỗ trợ PCVR qua SteamVR. Gồm <strong>4 màn</strong> theo lễ hội (Vu Lan, Tết Nguyên Đán, Trung Thu, Rằm Tháng Bảy), <strong>5 loại tháp</strong> (Quân Linh, Mẫu Liễu Hạnh, Sơn Tinh, Chử Đồng Tử, Hưng Đạo Đại Vương), <strong>5 loại quái</strong> và <strong>4 Boss</strong> có cơ chế riêng.
+              <p class="project-summary">
+                Game Tower Defense thực tế ảo (VR) mang đậm văn hóa Việt Nam, làm bằng <strong>Unity 6 (URP)</strong> cho Meta Quest 2/3/3S và hỗ trợ PCVR qua SteamVR. Gồm <strong>4 màn</strong> theo lễ hội, điều khiển hoàn toàn bằng <strong>hand tracking</strong>.
               </p>
-              <p>
-                Người chơi điều khiển bằng <strong>hand tracking</strong>: <strong>7 binh khí</strong> kích hoạt bằng cử chỉ tay (vung roi tre, vỗ trống đồng, kiếm quyết, chụm ngón), nhận diện qua vận tốc tay và độ cong khớp ngón. Trước mỗi wave, người chơi chọn 1 trong 3 <strong>thẻ buff/debuff</strong> ngẫu nhiên (từ 8 thẻ) để định hình chiến thuật.
-              </p>
-              
+
               <!-- Technical Breakdown -->
               <div class="tech-breakdown">
                 <span class="tech-tag">Meta XR / OpenXR</span>
@@ -373,15 +504,54 @@
                 <span class="tech-tag">Supabase</span>
               </div>
 
-              <div class="project-btns">
+              <div class="project-btns" style="margin-bottom: 0.5rem;">
                 <a class="cta-btn cta-btn--gitlab" href="https://gitlab.com/duongduongnavy-group/vr-datn-game.git" target="_blank">
                   <i class="fa-brands fa-gitlab"></i> Source Code
                 </a>
+                <button type="button" class="project-expand-btn" data-target="vr-expandable" data-more-text="Xem chi tiết gameplay" data-less-text="Rút gọn">
+                  <span class="btn-label">Xem chi tiết gameplay</span>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
               </div>
+
+              <div id="vr-expandable" class="project-expandable">
+                <div class="feature-contributions" style="margin: 0.5rem 0 1.2rem 0;">
+                  <div class="feature-item">
+                    <div class="feature-item-header">
+                      <div class="feature-title-group">
+                        <i class="fa-solid fa-hand"></i>
+                        <span>Điều khiển bằng tay &amp; 7 binh khí</span>
+                      </div>
+                    </div>
+                    <p>Binh khí kích hoạt bằng cử chỉ tay (vung roi tre, vỗ trống đồng, kiếm quyết, chụm ngón), nhận diện qua vận tốc tay và độ cong khớp ngón.</p>
+                  </div>
+
+                  <div class="feature-item">
+                    <div class="feature-item-header">
+                      <div class="feature-title-group">
+                        <i class="fa-solid fa-clone"></i>
+                        <span>Hệ thẻ buff / debuff</span>
+                      </div>
+                    </div>
+                    <p>Trước mỗi wave, người chơi chọn 1 trong 3 thẻ ngẫu nhiên (từ 8 thẻ) để định hình chiến thuật. Dữ liệu thẻ thiết kế bằng ScriptableObject.</p>
+                  </div>
+
+                  <div class="feature-item">
+                    <div class="feature-item-header">
+                      <div class="feature-title-group">
+                        <i class="fa-solid fa-chess-rook"></i>
+                        <span>Tháp, quái &amp; Boss</span>
+                      </div>
+                    </div>
+                    <p>5 loại tháp (Quân Linh, Mẫu Liễu Hạnh, Sơn Tinh, Chử Đồng Tử, Hưng Đạo Đại Vương), 5 loại quái và 4 Boss có cơ chế riêng.</p>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
             <!-- Media Carousel (Steam-like) -->
-            <div class="project-media project-wrapper__image steam-carousel">
+            <div class="project-media project-wrapper__image steam-carousel" style="direction: ltr;">
               <!-- Main View -->
               <div class="carousel-main">
                 <div class="loading-spinner"></div>
@@ -433,13 +603,14 @@
           </article>
 
           <!-- Project 1: FarmPuzzle -->
-          <article class="project-row" style="direction: rtl;">
+          <article class="project-row">
             <div class="project-info project-wrapper__text" style="direction: ltr;">
+              <span class="project-badge"><i class="fa-solid fa-seedling"></i> Hybrid-casual • Unity / C#</span>
               <h3>FarmPuzzle</h3>
-              <p>
-                Game mobile thể loại Hybrid-casual (Farm Simulation kết hợp Block Puzzle). Xây dựng Core Data Layer (SQLite & RAM Cache) giúp tối ưu tốc độ truy xuất dữ liệu và phát triển Custom Editor Tools (Database Viewer, AutoSetup) để tự động hóa quy trình thiết lập data cho team gồm 6 thành viên.
+              <p class="project-summary">
+                Game mobile Hybrid-casual (Farm Simulation kết hợp Block Puzzle) trong team <strong>6 thành viên</strong>. Xây dựng <strong>Core Data Layer</strong> (SQLite &amp; RAM Cache) và <strong>Custom Editor Tools</strong>.
               </p>
-              
+
               <!-- Technical Breakdown -->
               <div class="tech-breakdown">
                 <span class="tech-tag">Core Data Layer</span>
@@ -449,12 +620,39 @@
                 <span class="tech-tag">Git</span>
               </div>
 
-              <div class="project-btns">
-                <!-- <a href="#" target="_blank" class="cta-btn cta-btn--projects"><i class="fa-solid fa-play"></i> Play in Browser</a> -->
+              <div class="project-btns" style="margin-bottom: 0.5rem;">
                 <a href="https://github.com/Duong4921/farmpuzzle" target="_blank" class="cta-btn cta-btn--github">
                   <i class="fa-brands fa-github"></i> Source Code
                 </a>
+                <button type="button" class="project-expand-btn" data-target="farm-expandable" data-more-text="Xem chi tiết kỹ thuật" data-less-text="Rút gọn">
+                  <span class="btn-label">Xem chi tiết kỹ thuật</span>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
               </div>
+
+              <div id="farm-expandable" class="project-expandable">
+                <div class="feature-contributions" style="margin: 0.5rem 0 1.2rem 0;">
+                  <div class="feature-item">
+                    <div class="feature-item-header">
+                      <div class="feature-title-group">
+                        <i class="fa-solid fa-database"></i>
+                        <span>Core Data Layer</span>
+                      </div>
+                    </div>
+                    <p>SQLite &amp; RAM Cache giúp tối ưu tốc độ truy xuất dữ liệu.</p>
+                  </div>
+                  <div class="feature-item">
+                    <div class="feature-item-header">
+                      <div class="feature-title-group">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                        <span>Custom Editor Tools</span>
+                      </div>
+                    </div>
+                    <p>Database Viewer và AutoSetup để tự động hóa quy trình thiết lập data cho cả team.</p>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
             <!-- Media Carousel (Steam-like) - Dành riêng cho màn hình dọc -->
@@ -486,13 +684,14 @@
           </article>
 
           <!-- Project 2: Treasure Diver -->
-          <article class="project-row"> 
+          <article class="project-row" style="direction: rtl;"> 
             <div class="project-info project-wrapper__text" style="direction: ltr;">
+              <span class="project-badge"><i class="fa-solid fa-water"></i> Phiêu lưu hành động 2D/3D • Unity / C#</span>
               <h3>Treasure Diver</h3>
-              <p>
-                Game phiêu lưu hành động 2D/3D. Người chơi khám phá đại dương, né tránh quái vật, thu thập kho báu và nâng cấp chỉ số. Tập trung vào thiết kế Level, xử lý tương tác vật lý và lập trình AI bằng State Machine.
+              <p class="project-summary">
+                Game phiêu lưu hành động 2D/3D: khám phá đại dương, né tránh quái vật, thu thập kho báu và nâng cấp chỉ số.
               </p>
-              
+
               <!-- Technical Breakdown -->
               <div class="tech-breakdown">
                 <span class="tech-tag">State Machine (FSM)</span>
@@ -501,12 +700,48 @@
                 <span class="tech-tag">Level Design</span>
               </div>
 
-              <div class="project-btns">
-                <!-- <a href="#" target="_blank" class="cta-btn cta-btn--projects"><i class="fa-solid fa-download"></i> Download PC Build</a> -->
+              <div class="project-btns" style="margin-bottom: 0.5rem;">
                 <a href="https://github.com/Duong4921/treasurediver" target="_blank" class="cta-btn cta-btn--github">
                   <i class="fa-brands fa-github"></i> Source Code
                 </a>
+                <button type="button" class="project-expand-btn" data-target="diver-expandable" data-more-text="Xem chi tiết kỹ thuật" data-less-text="Rút gọn">
+                  <span class="btn-label">Xem chi tiết kỹ thuật</span>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
               </div>
+
+              <div id="diver-expandable" class="project-expandable">
+                <div class="feature-contributions" style="margin: 0.5rem 0 1.2rem 0;">
+                  <div class="feature-item">
+                    <div class="feature-item-header">
+                      <div class="feature-title-group">
+                        <i class="fa-solid fa-map"></i>
+                        <span>Thiết kế Level</span>
+                      </div>
+                    </div>
+                    <p>Tập trung vào thiết kế Level và hệ thống sinh quái (Spawning System).</p>
+                  </div>
+                  <div class="feature-item">
+                    <div class="feature-item-header">
+                      <div class="feature-title-group">
+                        <i class="fa-solid fa-atom"></i>
+                        <span>Vật lý 2D/3D</span>
+                      </div>
+                    </div>
+                    <p>Xử lý tương tác vật lý 2D/3D.</p>
+                  </div>
+                  <div class="feature-item">
+                    <div class="feature-item-header">
+                      <div class="feature-title-group">
+                        <i class="fa-solid fa-diagram-project"></i>
+                        <span>AI bằng State Machine</span>
+                      </div>
+                    </div>
+                    <p>Lập trình AI bằng State Machine (FSM).</p>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
             <!-- Media Carousel (Steam-like) -->
@@ -724,8 +959,28 @@
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
-        <div class="social-links">
-          <a href="https://github.com/Duong4921" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <h2 class="section-title">Liên hệ</h2>
+        <div class="contact-grid">
+          <a class="contact-item" style="--c: var(--text-primary);" href="https://github.com/Duong4921" title="GitHub: Duong4921" target="_blank" rel="noopener">
+            <i class="fa-brands fa-github"></i>
+            <span class="ci-name">GitHub</span>
+            <span class="ci-sub">Duong4921</span>
+          </a>
+          <a class="contact-item" style="--c: #1877f2;" href="https://www.facebook.com/duongduongjonhnydeep?locale=vi_VN&_rdc=1&_rdr#" target="_blank" rel="noopener">
+            <i class="fa-brands fa-facebook"></i>
+            <span class="ci-name">Facebook</span>
+            <span class="ci-sub">Nhắn tin cho mình</span>
+          </a>
+          <a class="contact-item" style="--c: #ea4335;" href="mailto:duongki011@gmail.com" title="Email: duongki011@gmail.com">
+            <i class="fa-solid fa-envelope"></i>
+            <span class="ci-name">Email</span>
+            <span class="ci-sub">duongki011@gmail.com</span>
+          </a>
+          <a class="contact-item" style="--c: #ff9f43;" href="./assets/Pham-Duc-Duong-DevIntern.pdf" title="Tải CV (PDF)" target="_blank" rel="noopener">
+            <i class="fa-solid fa-file-pdf"></i>
+            <span class="ci-name">CV</span>
+            <span class="ci-sub">Tải CV (PDF)</span>
+          </a>
         </div>
         <hr />
         <p class="footer__text">

@@ -2534,3 +2534,414 @@ body.light-mode .hero-cta .cta-btn--facebook:hover {
   box-shadow: none;
   transform: translateY(-2px);
 }
+
+/* Carousel cho ảnh màn hình điện thoại dài (~9:19.5) */
+.steam-carousel.carousel-vertical.carousel-tall .carousel-main { aspect-ratio: 9 / 18; max-width: 360px; }
+.steam-carousel.carousel-vertical.carousel-tall .carousel-thumbnails { max-width: 360px; }
+.steam-carousel.carousel-vertical.carousel-tall .thumbnail-item { aspect-ratio: 9 / 16; flex: 0 0 80px; }
+
+/* ==========================================================================
+   Chuyen canh giua cac section: mep cheo mot mau + noi dung truot vao
+   ========================================================================== */
+:root { --cut: clamp(28px, 5vw, 80px); }
+
+#skills, #projects, .footer { position: relative; }
+#skills   { z-index: 1; }
+#projects { z-index: 2; }
+.footer   { z-index: 3; }
+
+#skills {
+  margin-top: calc(var(--cut) * -1);
+  padding: calc(4rem + var(--cut)) 2rem calc(4rem + var(--cut));
+  clip-path: polygon(0 var(--cut), 100% 0, 100% 100%, 0 100%);
+}
+#projects {
+  margin-top: calc(var(--cut) * -1);
+  padding-top: calc(8rem + var(--cut));
+  padding-bottom: calc(8rem + var(--cut));
+  clip-path: polygon(0 0, 100% var(--cut), 100% 100%, 0 100%);
+}
+.footer {
+  margin-top: calc(var(--cut) * -1);
+  padding-top: calc(4rem + var(--cut));
+  clip-path: polygon(0 var(--cut), 100% 0, 100% 100%, 0 100%);
+}
+
+/* Ca khoi noi dung cua section truot len khi cuon toi */
+.sec-rv {
+  opacity: 0;
+  transform: translateY(48px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+.sec-rv.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sec-rv { opacity: 1; transform: none; }
+}
+
+#projects { background-color: var(--bg-color); }
+
+
+/* ==========================================================================
+   Slide system: intro khi vao trang, nut goi y, intro / outro tung slide
+   ========================================================================== */
+/* An noi dung hero cho den khi JS san sang (tranh nhay hinh luc load) */
+html.js:not(.sl-ready) #hero .hero-title,
+html.js:not(.sl-ready) #hero .hero-cta,
+html.js:not(.sl-ready) #hero .hero-avatar-container { opacity: 0; }
+
+.sl {
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+.sl[data-sl="before"] {
+  opacity: 0;
+  transform: translateY(56px) scale(0.985);
+  transition-delay: 0s;
+}
+.sl[data-sl="current"] {
+  opacity: 1;
+  transform: none;
+  transition-delay: calc(var(--si, 0) * 110ms + 120ms);
+}
+.sl[data-sl="after"] {
+  opacity: 0;
+  transform: translateY(-56px) scale(0.985);
+  transition-delay: calc(var(--si, 0) * 50ms);
+}
+
+/* Duong ke duoi tieu de chi hien khi slide dang xem */
+.section-title[data-sl="current"]::after { width: 48px; }
+
+/* Man che intro: nang len bang mep cheo */
+#intro-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut)), 0 100%);
+  transition: transform 1s var(--ease);
+  animation: curtainFallback 0s 3.5s forwards;
+}
+#intro-curtain .ic-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  animation: icFade 1s var(--ease) both;
+}
+#intro-curtain .ic-line {
+  position: absolute;
+  left: 50%;
+  top: calc(50% + 2.6rem);
+  width: 48px;
+  height: 2px;
+  margin-left: -24px;
+  background: var(--accent-color);
+  transform-origin: 0 50%;
+  animation: icLine 0.9s var(--ease) 0.3s both;
+}
+#intro-curtain.lift { transform: translateY(-100%); }
+@keyframes icFade { from { opacity: 0; transform: translateY(12px); } }
+@keyframes icLine { from { transform: scaleX(0); } }
+@keyframes curtainFallback { to { visibility: hidden; pointer-events: none; } }
+
+/* Nut goi y: bam de xuong slide ke tiep */
+.next-slide-btn {
+  position: fixed;
+  left: 50%;
+  bottom: 2.4rem;
+  transform: translateX(-50%);
+  z-index: 900;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.8rem 1rem;
+  border-radius: 40px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+.next-slide-btn:hover { color: var(--accent-color); border-color: var(--accent-color); }
+.next-slide-btn i { font-size: 1.4rem; animation: hintBounce 1.6s ease-in-out infinite; }
+.next-slide-btn.is-last i { animation-name: hintBounceUp; }
+@keyframes hintBounce { 50% { transform: translateY(5px); } }
+@keyframes hintBounceUp { 50% { transform: translateY(-5px); } }
+
+@media (max-width: 576px) {
+  .next-slide-btn { bottom: 1.4rem; padding: 0.7rem 1.4rem 0.8rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #intro-curtain { display: none; }
+  .next-slide-btn i { animation: none; }
+}
+
+/* Nut cuon len (tren cung giua) + trang thai an cua 2 nut dieu huong slide */
+.next-slide-btn,
+.prev-slide-btn {
+  transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease,
+              opacity 0.4s var(--ease), transform 0.4s var(--ease);
+}
+.prev-slide-btn {
+  position: fixed;
+  left: 50%;
+  top: 2.4rem;
+  transform: translateX(-50%);
+  z-index: 900;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 1.8rem 0.9rem;
+  border-radius: 40px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.prev-slide-btn:hover { color: var(--accent-color); border-color: var(--accent-color); }
+.prev-slide-btn i { font-size: 1.4rem; animation: hintBounceUp 1.6s ease-in-out infinite; }
+
+.next-slide-btn.is-hidden { opacity: 0; pointer-events: none; transform: translateX(-50%) translateY(14px); }
+.prev-slide-btn.is-hidden { opacity: 0; pointer-events: none; transform: translateX(-50%) translateY(-14px); }
+
+@media (max-width: 576px) {
+  .prev-slide-btn { top: 1.4rem; padding: 0.8rem 1.4rem 0.7rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .prev-slide-btn i { animation: none; }
+}
+
+
+/* Intro cham hon: man che giu lau, hero vao tung buoc */
+#intro-curtain {
+  flex-direction: column;
+  gap: 1.8rem;
+  transition: transform 1.5s var(--ease);
+  animation: curtainFallback 0s 7s forwards;
+}
+#intro-curtain .ic-name { animation: icFade 1.6s var(--ease) 0.2s both; }
+#intro-curtain .ic-line {
+  position: static;
+  margin: 0;
+  width: 72px;
+  animation: icLine 1.4s var(--ease) 0.9s both;
+}
+#intro-curtain .ic-sub {
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  animation: icFade 1.4s var(--ease) 1.5s both;
+}
+#hero .sl[data-sl="current"] {
+  transition-duration: 1.4s;
+  transition-delay: calc(var(--si, 0) * 280ms + 200ms);
+}
+
+/* An nut dieu huong slide trong luc man che intro con hien */
+body:has(#intro-curtain) .next-slide-btn,
+body:has(#intro-curtain) .prev-slide-btn { opacity: 0; pointer-events: none; }
+
+/* ==========================================================================
+   Hero gon trong 1 man hinh: chu ben trai, anh ben phai, het khoang trong thua
+   ========================================================================== */
+#hero { --av: clamp(200px, 32vh, 320px); }
+
+/* <br> sau span block tao ra mot dong trong -> bo di */
+.hero-title { line-height: 1.2; }
+.hero-title br { display: none; }
+.hero-title span { margin-top: 0.6rem; }
+
+#hero .hero-cover { height: clamp(240px, 38vh, 400px); }
+#hero .hero-avatar { width: var(--av); margin-top: calc(var(--av) * -0.3); }
+
+@media (min-width: 992px) {
+  #hero .container { flex-wrap: nowrap !important; }
+  #hero .hero-avatar-container { width: min(46%, 640px) !important; }
+}
+
+#hero .hero-cover { width: 100%; }
+#hero .hero-cta .cta-btn { font-size: 1.4rem; padding: 1rem 1.8rem; }
+@media (min-width: 992px) {
+  #hero .hero-avatar-container { width: min(40%, 560px) !important; }
+}
+
+
+/* ==========================================================================
+   Carousel: can giua thumbnail duoi anh chinh (khung doc), vua man hinh
+   ========================================================================== */
+.steam-carousel.carousel-vertical {
+  --cw: max(220px, min(400px, calc((100vh - 300px) * 0.5625)));
+}
+.steam-carousel.carousel-vertical.carousel-tall {
+  --cw: max(220px, min(360px, calc((100vh - 300px) / 2)));
+}
+.steam-carousel.carousel-vertical .carousel-main,
+.steam-carousel.carousel-vertical.carousel-tall .carousel-main { max-width: var(--cw); }
+.steam-carousel.carousel-vertical .carousel-thumbnails-wrapper {
+  width: 100%;
+  max-width: var(--cw);
+  margin-left: auto;
+  margin-right: auto;
+}
+.steam-carousel.carousel-vertical .carousel-thumbnails,
+.steam-carousel.carousel-vertical.carousel-tall .carousel-thumbnails { max-width: 100%; width: 100%; }
+
+/* ==========================================================================
+   Slide cuoi: Lien he voi bieu tuong nhieu mau
+   ========================================================================== */
+.footer {
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+}
+.footer > .container { width: 100%; }
+.footer .section-title { margin-bottom: 3.5rem; }
+.footer .section-title::after { width: 48px; }
+
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.4rem;
+}
+.contact-item {
+  --c: var(--accent-color);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 18rem;
+  padding: 2.6rem 1.2rem 2.2rem;
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--text-primary);
+  transition: transform 0.4s var(--ease), border-color 0.3s ease, box-shadow 0.4s var(--ease);
+}
+.contact-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--c) 24%, transparent), transparent 70%);
+  opacity: 0.6;
+  transition: opacity 0.4s ease;
+}
+.contact-item i {
+  position: relative;
+  font-size: 3.8rem;
+  color: var(--c);
+  transition: transform 0.4s var(--ease);
+}
+.contact-item .ci-name {
+  position: relative;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.contact-item .ci-sub {
+  position: relative;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  text-align: center;
+  word-break: break-all;
+}
+.contact-item:hover {
+  transform: translateY(-8px);
+  border-color: var(--c);
+  box-shadow: 0 14px 34px color-mix(in srgb, var(--c) 32%, transparent);
+  filter: none;
+}
+.contact-item:hover::before { opacity: 1; }
+.contact-item:hover i { transform: scale(1.18) rotate(-6deg); }
+
+@media (max-width: 576px) {
+  .contact-item { width: calc(50% - 1.2rem); padding: 2rem 0.8rem 1.8rem; }
+  .contact-item i { font-size: 3.2rem; }
+}
+
+/* Lien he toi gian: chi con bieu tuong tron nho nhieu mau + nhan 1 dong */
+.footer { min-height: 56vh; }
+.footer .section-title { font-size: 2rem; margin-bottom: 2.4rem; }
+.contact-grid { gap: 3.2rem; }
+.contact-item {
+  width: auto;
+  padding: 0;
+  gap: 0.9rem;
+  border: none;
+  border-radius: 0;
+  background: none;
+  overflow: visible;
+}
+.contact-item::before { display: none; }
+.contact-item .ci-sub { display: none; }
+.contact-item i {
+  width: 5.2rem;
+  height: 5.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  font-size: 2.2rem;
+  transition: transform 0.4s var(--ease), border-color 0.3s ease, background 0.3s ease;
+}
+.contact-item .ci-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+.contact-item:hover {
+  transform: translateY(-4px);
+  border-color: transparent;
+  box-shadow: none;
+}
+.contact-item:hover i {
+  transform: none;
+  border-color: var(--c);
+  background: color-mix(in srgb, var(--c) 14%, transparent);
+}
+.contact-item:hover .ci-name { color: var(--text-primary); }
+@media (max-width: 576px) {
+  .contact-item { width: auto; padding: 0; }
+  .contact-item i { font-size: 2rem; width: 4.8rem; height: 4.8rem; }
+  .contact-grid { gap: 2.2rem; }
+}
+
+/* 2 nut dieu huong slide: cung kich thuoc, doi xung qua giua man hinh */
+.next-slide-btn,
+.prev-slide-btn {
+  box-sizing: border-box;
+  width: 14rem;
+  height: 5.6rem;
+  padding: 0;
+  justify-content: center;
+}
